@@ -13,6 +13,7 @@ namespace eIspričnica
     public partial class Prijava : Form
     {
         Provjera provjera = new Provjera();
+        Registracija reg = new Registracija();
         public Prijava()
         {
             InitializeComponent();
@@ -21,6 +22,16 @@ namespace eIspričnica
         private void labelaProvjera_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             provjera.Show();
+        }
+
+        private void prijavaButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            reg.Show();
         }
     }
 }
