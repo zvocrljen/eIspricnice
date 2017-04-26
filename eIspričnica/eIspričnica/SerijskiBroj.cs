@@ -22,10 +22,10 @@ namespace eIspričnica
             textBox1.BackColor = Color.White;
             try
             {
-                if (textBox1.Text.Length > 3)
+                if (textBox1.Text.Length > 5)
                 {
                     textBox1.BackColor = Color.Red;
-                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice!");
+                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Prvi broj mora imati 5 znamenki!");
                 }
             }
             catch(NeispravanSerijskiBroj ex)
@@ -43,7 +43,7 @@ namespace eIspričnica
                 if (textBox2.Text.Length > 8)
                 {
                     textBox2.BackColor = Color.Red;
-                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice!");
+                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Drugi broj mora imati 8 znamenki!");
                 }
             }
             catch(NeispravanSerijskiBroj ex)

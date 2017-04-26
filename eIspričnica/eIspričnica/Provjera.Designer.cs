@@ -45,7 +45,7 @@
             // 
             this.serijskiBroj1.Location = new System.Drawing.Point(147, 188);
             this.serijskiBroj1.Name = "serijskiBroj1";
-            this.serijskiBroj1.Size = new System.Drawing.Size(186, 29);
+            this.serijskiBroj1.Size = new System.Drawing.Size(184, 27);
             this.serijskiBroj1.TabIndex = 1;
             // 
             // Provjera
@@ -56,7 +56,7 @@
             this.Controls.Add(this.serijskiBroj1);
             this.Controls.Add(this.SerBr);
             this.Name = "Provjera";
-            this.Text = "labe";
+            this.Text = "eIspričnice - Provjera po serijskom broju";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 6);
+            this.label1.Location = new System.Drawing.Point(60, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(10, 13);
             this.label1.TabIndex = 1;
@@ -52,7 +52,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(82, 3);
+            this.textBox2.Location = new System.Drawing.Point(68, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
@@ -66,7 +66,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "SerijskiBroj";
-            this.Size = new System.Drawing.Size(184, 27);
+            this.Size = new System.Drawing.Size(173, 27);
             this.ResumeLayout(false);
             this.PerformLayout();
 
