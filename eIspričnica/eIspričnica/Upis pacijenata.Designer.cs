@@ -41,7 +41,7 @@
             // 
             this.inputPretraživanje.Location = new System.Drawing.Point(118, 77);
             this.inputPretraživanje.Name = "inputPretraživanje";
-            this.inputPretraživanje.Size = new System.Drawing.Size(100, 20);
+            this.inputPretraživanje.Size = new System.Drawing.Size(251, 20);
             this.inputPretraživanje.TabIndex = 0;
             // 
             // pretraživanje
@@ -58,7 +58,7 @@
             this.registriraniPacijentiDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.registriraniPacijentiDataGridView.Location = new System.Drawing.Point(118, 136);
             this.registriraniPacijentiDataGridView.Name = "registriraniPacijentiDataGridView";
-            this.registriraniPacijentiDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.registriraniPacijentiDataGridView.Size = new System.Drawing.Size(251, 150);
             this.registriraniPacijentiDataGridView.TabIndex = 2;
             // 
             // registriraniPacijenti
@@ -72,7 +72,7 @@
             // 
             // spremiButton
             // 
-            this.spremiButton.Location = new System.Drawing.Point(189, 309);
+            this.spremiButton.Location = new System.Drawing.Point(201, 311);
             this.spremiButton.Name = "spremiButton";
             this.spremiButton.Size = new System.Drawing.Size(75, 23);
             this.spremiButton.TabIndex = 4;

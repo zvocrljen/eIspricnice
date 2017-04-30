@@ -41,7 +41,7 @@
             // 
             this.inputPretraživanje.Location = new System.Drawing.Point(131, 67);
             this.inputPretraživanje.Name = "inputPretraživanje";
-            this.inputPretraživanje.Size = new System.Drawing.Size(147, 20);
+            this.inputPretraživanje.Size = new System.Drawing.Size(240, 20);
             this.inputPretraživanje.TabIndex = 0;
             // 
             // pretraživanje

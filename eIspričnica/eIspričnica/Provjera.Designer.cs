@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Provjera));
             this.SerBr = new System.Windows.Forms.Label();
-            this.serijskiBroj1 = new eIspričnica.SerijskiBroj();
+            this.ucSerijskiBroj = new eIspričnica.SerijskiBroj();
             this.provjeriButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,12 +43,12 @@
             this.SerBr.TabIndex = 0;
             this.SerBr.Text = "Serijski broj:";
             // 
-            // serijskiBroj1
+            // ucSerijskiBroj
             // 
-            this.serijskiBroj1.Location = new System.Drawing.Point(147, 188);
-            this.serijskiBroj1.Name = "serijskiBroj1";
-            this.serijskiBroj1.Size = new System.Drawing.Size(184, 27);
-            this.serijskiBroj1.TabIndex = 1;
+            this.ucSerijskiBroj.Location = new System.Drawing.Point(147, 188);
+            this.ucSerijskiBroj.Name = "ucSerijskiBroj";
+            this.ucSerijskiBroj.Size = new System.Drawing.Size(184, 27);
+            this.ucSerijskiBroj.TabIndex = 1;
             // 
             // provjeriButton
             // 
@@ -66,7 +66,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.provjeriButton);
-            this.Controls.Add(this.serijskiBroj1);
+            this.Controls.Add(this.ucSerijskiBroj);
             this.Controls.Add(this.SerBr);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Provjera";
@@ -79,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.Label SerBr;
-        private SerijskiBroj serijskiBroj1;
+        private SerijskiBroj ucSerijskiBroj;
         private System.Windows.Forms.Button provjeriButton;
     }
 }
