@@ -52,6 +52,24 @@
     <Compile Include="Glavni izbornik.Designer.cs">
       <DependentUpon>Glavni izbornik.cs</DependentUpon>
     </Compile>
+    <Compile Include="PredajaZahtjeva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PredajaZahtjeva.Designer.cs">
+      <DependentUpon>PredajaZahtjeva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pregled zahtjeva liječnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pregled zahtjeva liječnik.Designer.cs">
+      <DependentUpon>Pregled zahtjeva liječnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pregled zahtjeva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pregled zahtjeva.Designer.cs">
+      <DependentUpon>Pregled zahtjeva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registracija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +110,15 @@
     </Compile>
     <EmbeddedResource Include="Glavni izbornik.resx">
       <DependentUpon>Glavni izbornik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PredajaZahtjeva.resx">
+      <DependentUpon>PredajaZahtjeva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pregled zahtjeva liječnik.resx">
+      <DependentUpon>Pregled zahtjeva liječnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pregled zahtjeva.resx">
+      <DependentUpon>Pregled zahtjeva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registracija.resx">
       <DependentUpon>Registracija.cs</DependentUpon>
