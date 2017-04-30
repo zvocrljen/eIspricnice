@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace eIspričnica
 {
-    public partial class Administracija : Form
+    public partial class FormAdministracija : Form
     {
-        public Administracija()
+        public FormAdministracija()
         {
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
     }
 }
