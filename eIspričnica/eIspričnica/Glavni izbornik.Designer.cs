@@ -66,6 +66,7 @@
             this.upisButton.TabIndex = 2;
             this.upisButton.Text = "Upis pacijenta u Bazu Podataka";
             this.upisButton.UseVisualStyleBackColor = true;
+            this.upisButton.Click += new System.EventHandler(this.upisButton_Click);
             // 
             // statButton
             // 
@@ -76,6 +77,7 @@
             this.statButton.TabIndex = 3;
             this.statButton.Text = "Statistika";
             this.statButton.UseVisualStyleBackColor = true;
+            this.statButton.Click += new System.EventHandler(this.statButton_Click);
             // 
             // odjavaButton
             // 
@@ -111,6 +113,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Glavni_izbornik";
             this.Text = "eIspričnice - Glavni izbornik";
+            this.Load += new System.EventHandler(this.Glavni_izbornik_Load);
             this.ResumeLayout(false);
 
         }
