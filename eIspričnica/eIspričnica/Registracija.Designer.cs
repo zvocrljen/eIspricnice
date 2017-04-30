@@ -42,16 +42,18 @@
             this.grad = new System.Windows.Forms.Label();
             this.inputGrad = new System.Windows.Forms.TextBox();
             this.korIme = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.inputKorIme = new System.Windows.Forms.TextBox();
             this.lozinka = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.inputLozinka = new System.Windows.Forms.TextBox();
             this.registracijaButton = new System.Windows.Forms.Button();
+            this.email = new System.Windows.Forms.Label();
+            this.inputEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ime
             // 
             this.ime.AutoSize = true;
-            this.ime.Location = new System.Drawing.Point(305, 115);
+            this.ime.Location = new System.Drawing.Point(304, 82);
             this.ime.Name = "ime";
             this.ime.Size = new System.Drawing.Size(24, 13);
             this.ime.TabIndex = 0;
@@ -60,7 +62,7 @@
             // prezime
             // 
             this.prezime.AutoSize = true;
-            this.prezime.Location = new System.Drawing.Point(305, 154);
+            this.prezime.Location = new System.Drawing.Point(304, 121);
             this.prezime.Name = "prezime";
             this.prezime.Size = new System.Drawing.Size(44, 13);
             this.prezime.TabIndex = 1;
@@ -68,14 +70,14 @@
             // 
             // inputIme
             // 
-            this.inputIme.Location = new System.Drawing.Point(308, 131);
+            this.inputIme.Location = new System.Drawing.Point(307, 98);
             this.inputIme.Name = "inputIme";
             this.inputIme.Size = new System.Drawing.Size(177, 20);
             this.inputIme.TabIndex = 2;
             // 
             // inputPrezime
             // 
-            this.inputPrezime.Location = new System.Drawing.Point(308, 170);
+            this.inputPrezime.Location = new System.Drawing.Point(307, 137);
             this.inputPrezime.Name = "inputPrezime";
             this.inputPrezime.Size = new System.Drawing.Size(177, 20);
             this.inputPrezime.TabIndex = 3;
@@ -83,7 +85,7 @@
             // oib
             // 
             this.oib.AutoSize = true;
-            this.oib.Location = new System.Drawing.Point(305, 193);
+            this.oib.Location = new System.Drawing.Point(304, 160);
             this.oib.Name = "oib";
             this.oib.Size = new System.Drawing.Size(25, 13);
             this.oib.TabIndex = 4;
@@ -91,7 +93,7 @@
             // 
             // inputOIB
             // 
-            this.inputOIB.Location = new System.Drawing.Point(308, 209);
+            this.inputOIB.Location = new System.Drawing.Point(307, 176);
             this.inputOIB.Name = "inputOIB";
             this.inputOIB.Size = new System.Drawing.Size(177, 20);
             this.inputOIB.TabIndex = 5;
@@ -100,7 +102,7 @@
             // telefon
             // 
             this.telefon.AutoSize = true;
-            this.telefon.Location = new System.Drawing.Point(305, 232);
+            this.telefon.Location = new System.Drawing.Point(304, 199);
             this.telefon.Name = "telefon";
             this.telefon.Size = new System.Drawing.Size(43, 13);
             this.telefon.TabIndex = 6;
@@ -108,7 +110,7 @@
             // 
             // inputTelefon
             // 
-            this.inputTelefon.Location = new System.Drawing.Point(308, 248);
+            this.inputTelefon.Location = new System.Drawing.Point(307, 215);
             this.inputTelefon.Name = "inputTelefon";
             this.inputTelefon.Size = new System.Drawing.Size(177, 20);
             this.inputTelefon.TabIndex = 7;
@@ -116,7 +118,7 @@
             // adresa
             // 
             this.adresa.AutoSize = true;
-            this.adresa.Location = new System.Drawing.Point(305, 271);
+            this.adresa.Location = new System.Drawing.Point(304, 238);
             this.adresa.Name = "adresa";
             this.adresa.Size = new System.Drawing.Size(40, 13);
             this.adresa.TabIndex = 8;
@@ -124,7 +126,7 @@
             // 
             // inputAdresa
             // 
-            this.inputAdresa.Location = new System.Drawing.Point(308, 287);
+            this.inputAdresa.Location = new System.Drawing.Point(307, 254);
             this.inputAdresa.Name = "inputAdresa";
             this.inputAdresa.Size = new System.Drawing.Size(177, 20);
             this.inputAdresa.TabIndex = 9;
@@ -132,7 +134,7 @@
             // grad
             // 
             this.grad.AutoSize = true;
-            this.grad.Location = new System.Drawing.Point(305, 310);
+            this.grad.Location = new System.Drawing.Point(304, 277);
             this.grad.Name = "grad";
             this.grad.Size = new System.Drawing.Size(30, 13);
             this.grad.TabIndex = 10;
@@ -140,7 +142,7 @@
             // 
             // inputGrad
             // 
-            this.inputGrad.Location = new System.Drawing.Point(308, 326);
+            this.inputGrad.Location = new System.Drawing.Point(307, 293);
             this.inputGrad.Name = "inputGrad";
             this.inputGrad.Size = new System.Drawing.Size(177, 20);
             this.inputGrad.TabIndex = 11;
@@ -148,38 +150,38 @@
             // korIme
             // 
             this.korIme.AutoSize = true;
-            this.korIme.Location = new System.Drawing.Point(305, 349);
+            this.korIme.Location = new System.Drawing.Point(304, 316);
             this.korIme.Name = "korIme";
             this.korIme.Size = new System.Drawing.Size(75, 13);
             this.korIme.TabIndex = 13;
             this.korIme.Text = "Korisničko ime";
             // 
-            // textBox1
+            // inputKorIme
             // 
-            this.textBox1.Location = new System.Drawing.Point(308, 365);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 20);
-            this.textBox1.TabIndex = 14;
+            this.inputKorIme.Location = new System.Drawing.Point(307, 332);
+            this.inputKorIme.Name = "inputKorIme";
+            this.inputKorIme.Size = new System.Drawing.Size(177, 20);
+            this.inputKorIme.TabIndex = 14;
             // 
             // lozinka
             // 
             this.lozinka.AutoSize = true;
-            this.lozinka.Location = new System.Drawing.Point(305, 388);
+            this.lozinka.Location = new System.Drawing.Point(304, 355);
             this.lozinka.Name = "lozinka";
             this.lozinka.Size = new System.Drawing.Size(44, 13);
             this.lozinka.TabIndex = 15;
             this.lozinka.Text = "Lozinka";
             // 
-            // textBox2
+            // inputLozinka
             // 
-            this.textBox2.Location = new System.Drawing.Point(308, 404);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 20);
-            this.textBox2.TabIndex = 16;
+            this.inputLozinka.Location = new System.Drawing.Point(307, 371);
+            this.inputLozinka.Name = "inputLozinka";
+            this.inputLozinka.Size = new System.Drawing.Size(177, 20);
+            this.inputLozinka.TabIndex = 16;
             // 
             // registracijaButton
             // 
-            this.registracijaButton.Location = new System.Drawing.Point(347, 430);
+            this.registracijaButton.Location = new System.Drawing.Point(348, 470);
             this.registracijaButton.Name = "registracijaButton";
             this.registracijaButton.Size = new System.Drawing.Size(96, 29);
             this.registracijaButton.TabIndex = 17;
@@ -187,15 +189,33 @@
             this.registracijaButton.UseVisualStyleBackColor = true;
             this.registracijaButton.Click += new System.EventHandler(this.registracijaButton_Click_1);
             // 
+            // email
+            // 
+            this.email.AutoSize = true;
+            this.email.Location = new System.Drawing.Point(304, 394);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(35, 13);
+            this.email.TabIndex = 18;
+            this.email.Text = "E-mail";
+            // 
+            // inputEmail
+            // 
+            this.inputEmail.Location = new System.Drawing.Point(307, 410);
+            this.inputEmail.Name = "inputEmail";
+            this.inputEmail.Size = new System.Drawing.Size(177, 20);
+            this.inputEmail.TabIndex = 19;
+            // 
             // Registracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.inputEmail);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.registracijaButton);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.inputLozinka);
             this.Controls.Add(this.lozinka);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.inputKorIme);
             this.Controls.Add(this.korIme);
             this.Controls.Add(this.inputGrad);
             this.Controls.Add(this.grad);
@@ -213,6 +233,7 @@
             this.Name = "Registracija";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "eIspričnice - Registracija";
+            this.Load += new System.EventHandler(this.Registracija_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,9 +254,11 @@
         private System.Windows.Forms.Label grad;
         private System.Windows.Forms.TextBox inputGrad;
         private System.Windows.Forms.Label korIme;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox inputKorIme;
         private System.Windows.Forms.Label lozinka;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox inputLozinka;
         private System.Windows.Forms.Button registracijaButton;
+        private System.Windows.Forms.Label email;
+        private System.Windows.Forms.TextBox inputEmail;
     }
 }

@@ -29,5 +29,10 @@ namespace eIspričnica
                 inputOIB.BackColor = Color.Red;
             }
         }
+
+        private void Registracija_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

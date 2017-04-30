@@ -18,7 +18,18 @@ namespace eIspričnica
         {
             InitializeComponent();
         }
-
+        private void Prijava_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(Prijava_KeyDown);
+        }
+        private void Prijava_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                Help.ShowHelp(null, @"help.chm");
+            }
+        }
         private void labelaProvjera_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             provjera.Show();

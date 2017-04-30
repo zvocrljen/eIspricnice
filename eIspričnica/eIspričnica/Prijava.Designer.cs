@@ -35,8 +35,8 @@
             this.inputLozinka = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.prijavaButton = new System.Windows.Forms.Button();
-            this.labelaProvjera = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkProvjera = new System.Windows.Forms.LinkLabel();
+            this.linkRegistracija = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,35 +93,35 @@
             this.prijavaButton.UseVisualStyleBackColor = true;
             this.prijavaButton.Click += new System.EventHandler(this.prijavaButton_Click);
             // 
-            // labelaProvjera
+            // linkProvjera
             // 
-            this.labelaProvjera.AutoSize = true;
-            this.labelaProvjera.Location = new System.Drawing.Point(13, 536);
-            this.labelaProvjera.Name = "labelaProvjera";
-            this.labelaProvjera.Size = new System.Drawing.Size(176, 13);
-            this.labelaProvjera.TabIndex = 6;
-            this.labelaProvjera.TabStop = true;
-            this.labelaProvjera.Text = "Provjeri ispričnicu po serijskom broju";
-            this.labelaProvjera.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelaProvjera_LinkClicked);
+            this.linkProvjera.AutoSize = true;
+            this.linkProvjera.Location = new System.Drawing.Point(13, 536);
+            this.linkProvjera.Name = "linkProvjera";
+            this.linkProvjera.Size = new System.Drawing.Size(176, 13);
+            this.linkProvjera.TabIndex = 6;
+            this.linkProvjera.TabStop = true;
+            this.linkProvjera.Text = "Provjeri ispričnicu po serijskom broju";
+            this.linkProvjera.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelaProvjera_LinkClicked);
             // 
-            // linkLabel1
+            // linkRegistracija
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(332, 404);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(142, 13);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Nemaš račun? Registriraj se!";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkRegistracija.AutoSize = true;
+            this.linkRegistracija.Location = new System.Drawing.Point(332, 404);
+            this.linkRegistracija.Name = "linkRegistracija";
+            this.linkRegistracija.Size = new System.Drawing.Size(142, 13);
+            this.linkRegistracija.TabIndex = 7;
+            this.linkRegistracija.TabStop = true;
+            this.linkRegistracija.Text = "Nemaš račun? Registriraj se!";
+            this.linkRegistracija.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Prijava
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.labelaProvjera);
+            this.Controls.Add(this.linkRegistracija);
+            this.Controls.Add(this.linkProvjera);
             this.Controls.Add(this.prijavaButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.inputLozinka);
@@ -131,6 +131,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Prijava";
             this.Text = "eIspričnice - Prijava u aplikaciju";
+            this.Load += new System.EventHandler(this.Prijava_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,8 +146,8 @@
         private System.Windows.Forms.TextBox inputLozinka;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button prijavaButton;
-        private System.Windows.Forms.LinkLabel labelaProvjera;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkProvjera;
+        private System.Windows.Forms.LinkLabel linkRegistracija;
     }
 }
 

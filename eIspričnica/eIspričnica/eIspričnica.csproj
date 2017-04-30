@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExceptionNeispravanSerijskiBroj.cs" />
+    <Compile Include="Glavni izbornik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Glavni izbornik.Designer.cs">
+      <DependentUpon>Glavni izbornik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registracija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="SerijskiBroj.Designer.cs">
       <DependentUpon>SerijskiBroj.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Glavni izbornik.resx">
+      <DependentUpon>Glavni izbornik.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registracija.resx">
       <DependentUpon>Registracija.cs</DependentUpon>
     </EmbeddedResource>

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace eIspričnica
 {
-    public partial class Provjera : Form
+    public partial class Glavni_izbornik : Form
     {
-        public Provjera()
+        public Glavni_izbornik()
         {
             InitializeComponent();
-        }
-
-        private void provjeriButton_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
