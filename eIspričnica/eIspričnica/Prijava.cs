@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace eIspričnica
 {
@@ -14,6 +15,7 @@ namespace eIspričnica
     {
         Provjera provjera = new Provjera();
         Registracija reg = new Registracija();
+        string helpLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\help.chm";
         public Prijava()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace eIspričnica
         {
             if (e.KeyCode.ToString() == "F1")
             {
-                Help.ShowHelp(null, @"help.chm");
+                Help.ShowHelp(null, helpLocation);
             }
         }
         private void labelaProvjera_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

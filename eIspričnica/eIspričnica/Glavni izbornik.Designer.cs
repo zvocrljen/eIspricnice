@@ -46,6 +46,7 @@
             this.predajButton.TabIndex = 0;
             this.predajButton.Text = "Predaja zahtjeva za ispričnicom";
             this.predajButton.UseVisualStyleBackColor = true;
+            this.predajButton.Click += new System.EventHandler(this.predajButton_Click);
             // 
             // pregledButton
             // 
