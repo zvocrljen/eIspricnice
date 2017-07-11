@@ -64,32 +64,39 @@ namespace eIspričnica
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using(var db = new mydbEntities1())
+            if (txtLozinka.Text == "" || txtLozinka.Text.Length < 6 || txtKorIme.Text == "" || txtKorIme.Text.Length < 6)
             {
-                if (odabraniZaposlenik != null)
+                MessageBox.Show("Popunite prazne redove!", "eIspričnica - Obavijest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                using (var db = new mydbEntities1())
                 {
-                    db.zaposlenici.Attach(odabraniZaposlenik);
-                    odabraniZaposlenik.ImePrezime = txtImePrezime.Text;
-                    odabraniZaposlenik.korIme = sha256(txtKorIme.Text);
-                    odabraniZaposlenik.korLozinka = sha256(txtLozinka.Text);
-                    odabraniZaposlenik.RazinaPrava_idRazinaPrava = cbRazinaPrava.SelectedIndex + 1;
-                    odabraniZaposlenik.Bolnica_idBolnica = cbBolnica.SelectedIndex + 1;
-                    db.SaveChanges();
-                }
-                else
-                {
-                    zaposlenici zaposlenik = new zaposlenici
+                    if (odabraniZaposlenik != null)
                     {
-                        ImePrezime = txtImePrezime.Text,
-                        korIme = sha256(txtKorIme.Text),
-                        korLozinka = sha256(txtLozinka.Text),
-                        RazinaPrava_idRazinaPrava = cbRazinaPrava.SelectedIndex + 1,
-                        Bolnica_idBolnica = cbBolnica.SelectedIndex + 1
-                    };
-                    db.zaposlenici.Add(zaposlenik);
-                    db.SaveChanges();
+                        db.zaposlenici.Attach(odabraniZaposlenik);
+                        odabraniZaposlenik.ImePrezime = txtImePrezime.Text;
+                        odabraniZaposlenik.korIme = sha256(txtKorIme.Text);
+                        odabraniZaposlenik.korLozinka = sha256(txtLozinka.Text);
+                        odabraniZaposlenik.RazinaPrava_idRazinaPrava = cbRazinaPrava.SelectedIndex + 1;
+                        odabraniZaposlenik.Bolnica_idBolnica = cbBolnica.SelectedIndex + 1;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        zaposlenici zaposlenik = new zaposlenici
+                        {
+                            ImePrezime = txtImePrezime.Text,
+                            korIme = sha256(txtKorIme.Text),
+                            korLozinka = sha256(txtLozinka.Text),
+                            RazinaPrava_idRazinaPrava = cbRazinaPrava.SelectedIndex + 1,
+                            Bolnica_idBolnica = cbBolnica.SelectedIndex + 1
+                        };
+                        db.zaposlenici.Add(zaposlenik);
+                        db.SaveChanges();
+                    }
+                    Close();
                 }
-                Close();
             }
         }
         private void txtLozinka_Click(object sender, EventArgs e)

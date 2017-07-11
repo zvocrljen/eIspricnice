@@ -68,9 +68,17 @@ namespace eIspričnica
         }
         private void btnIzmijeni_Click(object sender, EventArgs e)
         {
-            Form urediZaposlenika = new frmAdmin_noviLiječnik(zaposleniciBindingSource.Current as zaposlenici);
-            urediZaposlenika.ShowDialog();
-            PrikaziZaposlenike();
+            zaposlenici odabraniZaposlenik = zaposleniciBindingSource.Current as zaposlenici;
+            if (odabraniZaposlenik.Bolnica_idBolnica == session.Bolnica)
+            {
+                Form urediZaposlenika = new frmAdmin_noviLiječnik(odabraniZaposlenik);
+                urediZaposlenika.ShowDialog();
+                PrikaziZaposlenike();
+            }
+            else
+            {
+                MessageBox.Show("Niste ovlašteni mijenjati zaposlenika druge bolnice!", "eIspričnice - Greška #", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnBrisi_Click(object sender, EventArgs e)
         {
@@ -107,7 +115,8 @@ namespace eIspričnica
         }
         private void btnIzmjena_Click(object sender, EventArgs e)
         {
-            Form urediPacijenta = new frmAdmin_urediPacijenta(pacijentiBindingSource.Current as pacijenti);
+            pacijenti odabraniPacijent = pacijentiBindingSource.Current as pacijenti;
+            Form urediPacijenta = new frmAdmin_urediPacijenta(odabraniPacijent);
             urediPacijenta.ShowDialog();
             zaposlenici odabraniZaposlenik = zaposleniciBindingSource.Current as zaposlenici;
             PrikaziPacijente(odabraniZaposlenik);

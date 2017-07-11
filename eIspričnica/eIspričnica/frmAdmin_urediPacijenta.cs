@@ -52,19 +52,26 @@ namespace eIspričnica
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            using (var db = new mydbEntities1())
+            if(txtLozinka.Text == "" || txtLozinka.Text.Length < 6 || txtBrojZdravstvene.Text == "" || txtBrojZdravstvene.Text.Length < 6)
             {
-                if (odabraniPacijent != null)
+                MessageBox.Show("Popunite prazne redove!", "eIspričnica - Obavijest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                using (var db = new mydbEntities1())
                 {
-                    db.pacijenti.Attach(odabraniPacijent);
-                    odabraniPacijent.ImePrezime = txtPreIme.Text;
-                    odabraniPacijent.OIB = txtOIB.Text;
-                    odabraniPacijent.BrojPoliceOsiguranja = txtBrojPolice.Text;
-                    odabraniPacijent.BrojZdravstveneIskaznice = txtBrojZdravstvene.Text;
-                    odabraniPacijent.lozinka = sha256(txtLozinka.Text);
-                    db.SaveChanges();
+                    if (odabraniPacijent != null)
+                    {
+                        db.pacijenti.Attach(odabraniPacijent);
+                        odabraniPacijent.ImePrezime = txtPreIme.Text;
+                        odabraniPacijent.OIB = txtOIB.Text;
+                        odabraniPacijent.BrojPoliceOsiguranja = txtBrojPolice.Text;
+                        odabraniPacijent.BrojZdravstveneIskaznice = txtBrojZdravstvene.Text;
+                        odabraniPacijent.lozinka = sha256(txtLozinka.Text);
+                        db.SaveChanges();
+                    }
+                    Close();
                 }
-                Close();
             }
         }
     }
