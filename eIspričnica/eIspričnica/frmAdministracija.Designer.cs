@@ -40,7 +40,7 @@
             this.zaposleniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDodaj = new System.Windows.Forms.Button();
             this.btnIzbrisi = new System.Windows.Forms.Button();
-            this.outputKorisnik = new System.Windows.Forms.DataGridView();
+            this.dgvPacijenti = new System.Windows.Forms.DataGridView();
             this.idPacijentiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imePrezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oIBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.btnBrisi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zaposleniciBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.outputKorisnik)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacijenti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,26 +145,26 @@
             this.btnIzbrisi.UseVisualStyleBackColor = true;
             this.btnIzbrisi.Click += new System.EventHandler(this.btnIzbrisi_Click);
             // 
-            // outputKorisnik
+            // dgvPacijenti
             // 
-            this.outputKorisnik.AllowUserToAddRows = false;
-            this.outputKorisnik.AllowUserToDeleteRows = false;
-            this.outputKorisnik.AutoGenerateColumns = false;
-            this.outputKorisnik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.outputKorisnik.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPacijenti.AllowUserToAddRows = false;
+            this.dgvPacijenti.AllowUserToDeleteRows = false;
+            this.dgvPacijenti.AutoGenerateColumns = false;
+            this.dgvPacijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacijenti.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idPacijentiDataGridViewTextBoxColumn,
             this.imePrezimeDataGridViewTextBoxColumn,
             this.oIBDataGridViewTextBoxColumn,
             this.brojPoliceOsiguranjaDataGridViewTextBoxColumn,
             this.brojZdravstveneIskazniceDataGridViewTextBoxColumn,
             this.lozinkaDataGridViewTextBoxColumn});
-            this.outputKorisnik.DataSource = this.pacijentiBindingSource;
-            this.outputKorisnik.Location = new System.Drawing.Point(12, 285);
-            this.outputKorisnik.Name = "outputKorisnik";
-            this.outputKorisnik.ReadOnly = true;
-            this.outputKorisnik.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.outputKorisnik.Size = new System.Drawing.Size(760, 205);
-            this.outputKorisnik.TabIndex = 4;
+            this.dgvPacijenti.DataSource = this.pacijentiBindingSource;
+            this.dgvPacijenti.Location = new System.Drawing.Point(12, 285);
+            this.dgvPacijenti.Name = "dgvPacijenti";
+            this.dgvPacijenti.ReadOnly = true;
+            this.dgvPacijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPacijenti.Size = new System.Drawing.Size(760, 205);
+            this.dgvPacijenti.TabIndex = 4;
             // 
             // idPacijentiDataGridViewTextBoxColumn
             // 
@@ -240,9 +240,9 @@
             this.btnBrisi.TabIndex = 7;
             this.btnBrisi.Text = "Izbriši";
             this.btnBrisi.UseVisualStyleBackColor = true;
-            this.btnBrisi.Click += new System.EventHandler(this.btnIzbrisi1_Click);
+            this.btnBrisi.Click += new System.EventHandler(this.btnBrisi_Click);
             // 
-            // FormAdministracija
+            // frmAdministracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -250,17 +250,17 @@
             this.Controls.Add(this.btnBrisi);
             this.Controls.Add(this.btnUredi);
             this.Controls.Add(this.btnIzmjeni);
-            this.Controls.Add(this.outputKorisnik);
+            this.Controls.Add(this.dgvPacijenti);
             this.Controls.Add(this.btnIzbrisi);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvZaposlenici);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormAdministracija";
+            this.Name = "frmAdministracija";
             this.Text = "eIspričnice - Administracija";
             this.Load += new System.EventHandler(this.FormAdministracija_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenici)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zaposleniciBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.outputKorisnik)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacijenti)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacijentiBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -271,7 +271,7 @@
         private System.Windows.Forms.DataGridView dgvZaposlenici;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnIzbrisi;
-        private System.Windows.Forms.DataGridView outputKorisnik;
+        private System.Windows.Forms.DataGridView dgvPacijenti;
         private System.Windows.Forms.Button btnIzmjeni;
         private System.Windows.Forms.BindingSource pacijentiBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPacijentiDataGridViewTextBoxColumn;

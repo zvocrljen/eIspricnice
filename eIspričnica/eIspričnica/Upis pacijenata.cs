@@ -12,7 +12,6 @@ namespace eIspričnica
 {
     public partial class Upis_pacijenata : Form
     {
-        Registracija reg = new Registracija();
         public Upis_pacijenata()
         {
             InitializeComponent();
@@ -20,7 +19,7 @@ namespace eIspričnica
 
         private void linkRegistracija_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            reg.Show();
+
         }
     }
 }

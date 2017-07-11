@@ -101,7 +101,7 @@
             this.lnkProvjera.TabIndex = 6;
             this.lnkProvjera.TabStop = true;
             this.lnkProvjera.Text = "Provjeri ispričnicu po serijskom broju";
-            this.lnkProvjera.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelaProvjera_LinkClicked);
+            this.lnkProvjera.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkProvjera_LinkClicked);
             // 
             // Prijava
             // 

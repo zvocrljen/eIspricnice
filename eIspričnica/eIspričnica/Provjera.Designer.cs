@@ -59,6 +59,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Provjera";
             this.Text = "eIspričnice - Provjera po serijskom broju";
+            this.Load += new System.EventHandler(this.Provjera_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

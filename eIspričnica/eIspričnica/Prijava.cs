@@ -15,23 +15,10 @@ namespace eIspričnica
 {
     public partial class Prijava : Form
     {
-        Provjera provjera = new Provjera();
         string helpLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\help.chm";
         public Prijava()
         {
             InitializeComponent();
-        }
-        public static string sha256(string rijec)
-        {
-            byte[] poljeByteova = Encoding.UTF8.GetBytes(rijec);
-            SHA256Managed hashRijec = new SHA256Managed();
-            byte[] hash = hashRijec.ComputeHash(poljeByteova);
-            string izlaz = "";
-            foreach (byte b in hash)
-            {
-                izlaz += String.Format("{0:x2}", b);
-            }
-            return izlaz;
         }
         private void Prijava_Load(object sender, EventArgs e)
         {
@@ -45,8 +32,9 @@ namespace eIspričnica
                 Help.ShowHelp(null, helpLocation);
             }
         }
-        private void labelaProvjera_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkProvjera_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Provjera provjera = new Provjera();
             provjera.ShowDialog();
         }
 
@@ -58,7 +46,7 @@ namespace eIspričnica
                 return;
             }
             DBService.Login prijava = new DBService.Login();
-            string rezultat = prijava.DohvatiKorisnika(sha256(txtKorIme.Text), sha256(txtLozinka.Text));
+            string rezultat = prijava.DohvatiKorisnika(txtKorIme.Text, txtLozinka.Text);
             if (rezultat == "")
             {
                 MessageBox.Show("Greška 2: Neispravno korisničko ime ili lozinka!", "eIspričnice - Greška 4", MessageBoxButtons.OK, MessageBoxIcon.Error);

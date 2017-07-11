@@ -72,7 +72,7 @@ namespace eIspričnica
             urediZaposlenika.ShowDialog();
             PrikaziZaposlenike();
         }
-        private void btnIzbrisi1_Click(object sender, EventArgs e)
+        private void btnBrisi_Click(object sender, EventArgs e)
         {
             zaposlenici odabraniZaposlenik = zaposleniciBindingSource.Current as zaposlenici;
             if (odabraniZaposlenik != null)

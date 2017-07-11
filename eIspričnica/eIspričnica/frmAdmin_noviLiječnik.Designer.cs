@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin_noviLiječnik));
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
-            this.txtPreIme = new System.Windows.Forms.TextBox();
+            this.txtImePrezime = new System.Windows.Forms.TextBox();
             this.txtKorIme = new System.Windows.Forms.TextBox();
             this.txtLozinka = new System.Windows.Forms.TextBox();
             this.lblImePrezime = new System.Windows.Forms.Label();
@@ -66,12 +66,12 @@
             this.lblID.TabIndex = 1;
             this.lblID.Text = "ID:";
             // 
-            // txtPreIme
+            // txtImePrezime
             // 
-            this.txtPreIme.Location = new System.Drawing.Point(91, 56);
-            this.txtPreIme.Name = "txtPreIme";
-            this.txtPreIme.Size = new System.Drawing.Size(207, 20);
-            this.txtPreIme.TabIndex = 2;
+            this.txtImePrezime.Location = new System.Drawing.Point(91, 56);
+            this.txtImePrezime.Name = "txtImePrezime";
+            this.txtImePrezime.Size = new System.Drawing.Size(207, 20);
+            this.txtImePrezime.TabIndex = 2;
             // 
             // txtKorIme
             // 
@@ -79,6 +79,7 @@
             this.txtKorIme.Name = "txtKorIme";
             this.txtKorIme.Size = new System.Drawing.Size(207, 20);
             this.txtKorIme.TabIndex = 3;
+            this.txtKorIme.Click += new System.EventHandler(this.txtKorIme_Click);
             // 
             // txtLozinka
             // 
@@ -86,6 +87,7 @@
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(207, 20);
             this.txtLozinka.TabIndex = 4;
+            this.txtLozinka.Click += new System.EventHandler(this.txtLozinka_Click);
             // 
             // lblImePrezime
             // 
@@ -188,7 +190,7 @@
             this.Controls.Add(this.lblImePrezime);
             this.Controls.Add(this.txtLozinka);
             this.Controls.Add(this.txtKorIme);
-            this.Controls.Add(this.txtPreIme);
+            this.Controls.Add(this.txtImePrezime);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtID);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -206,7 +208,7 @@
 
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtPreIme;
+        private System.Windows.Forms.TextBox txtImePrezime;
         private System.Windows.Forms.TextBox txtKorIme;
         private System.Windows.Forms.TextBox txtLozinka;
         private System.Windows.Forms.Label lblImePrezime;

@@ -48,10 +48,23 @@ namespace eIspričnica
                 txtBrojZdravstvene.Text = odabraniPacijent.BrojZdravstveneIskaznice.ToString();
                 txtLozinka.Text = odabraniPacijent.lozinka.ToString();
             }
-            else
+        }
+
+        private void btnSpremi_Click(object sender, EventArgs e)
+        {
+            using (var db = new mydbEntities1())
             {
-                txtID.Text = "-1";
-                txtPreIme.Focus();
+                if (odabraniPacijent != null)
+                {
+                    db.pacijenti.Attach(odabraniPacijent);
+                    odabraniPacijent.ImePrezime = txtPreIme.Text;
+                    odabraniPacijent.OIB = txtOIB.Text;
+                    odabraniPacijent.BrojPoliceOsiguranja = txtBrojPolice.Text;
+                    odabraniPacijent.BrojZdravstveneIskaznice = txtBrojZdravstvene.Text;
+                    odabraniPacijent.lozinka = sha256(txtLozinka.Text);
+                    db.SaveChanges();
+                }
+                Close();
             }
         }
     }

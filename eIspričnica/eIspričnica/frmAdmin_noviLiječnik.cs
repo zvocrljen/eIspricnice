@@ -49,7 +49,7 @@ namespace eIspričnica
             if (odabraniZaposlenik != null)
             {
                 txtID.Text = odabraniZaposlenik.idZaposlenici.ToString();
-                txtPreIme.Text = odabraniZaposlenik.ImePrezime.ToString();
+                txtImePrezime.Text = odabraniZaposlenik.ImePrezime.ToString();
                 txtKorIme.Text = odabraniZaposlenik.korIme.ToString();
                 txtLozinka.Text = odabraniZaposlenik.korLozinka.ToString();
                 cbRazinaPrava.SelectedIndex = Convert.ToInt32(odabraniZaposlenik.RazinaPrava_idRazinaPrava.ToString())-1;
@@ -58,7 +58,7 @@ namespace eIspričnica
             else
             {
                 txtID.Text = "-1";
-                txtPreIme.Focus();
+                txtImePrezime.Focus();
             }
         }
 
@@ -69,7 +69,7 @@ namespace eIspričnica
                 if (odabraniZaposlenik != null)
                 {
                     db.zaposlenici.Attach(odabraniZaposlenik);
-                    odabraniZaposlenik.ImePrezime = txtPreIme.Text;
+                    odabraniZaposlenik.ImePrezime = txtImePrezime.Text;
                     odabraniZaposlenik.korIme = sha256(txtKorIme.Text);
                     odabraniZaposlenik.korLozinka = sha256(txtLozinka.Text);
                     odabraniZaposlenik.RazinaPrava_idRazinaPrava = cbRazinaPrava.SelectedIndex + 1;
@@ -80,7 +80,7 @@ namespace eIspričnica
                 {
                     zaposlenici zaposlenik = new zaposlenici
                     {
-                        ImePrezime = txtPreIme.Text,
+                        ImePrezime = txtImePrezime.Text,
                         korIme = sha256(txtKorIme.Text),
                         korLozinka = sha256(txtLozinka.Text),
                         RazinaPrava_idRazinaPrava = cbRazinaPrava.SelectedIndex + 1,
@@ -91,6 +91,15 @@ namespace eIspričnica
                 }
                 Close();
             }
+        }
+        private void txtLozinka_Click(object sender, EventArgs e)
+        {
+            txtLozinka.Clear();
+        }
+
+        private void txtKorIme_Click(object sender, EventArgs e)
+        {
+            txtKorIme.Clear();
         }
     }
 }
