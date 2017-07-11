@@ -13,12 +13,13 @@ namespace eIspričnica
 {
     public partial class Glavni_izbornik : Form
     {
-        Upis_pacijenata upis = new Upis_pacijenata();
-        Statistika statistika = new Statistika();
         string helpLocation = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\help.chm";
-        public Glavni_izbornik()
+        Sesija session = new Sesija("0", 0, 0);
+        public Glavni_izbornik(Sesija sess)
         {
             InitializeComponent();
+            if (sess.RazinaPrava == 2) btnAdmin.Enabled=true;
+            session = sess;
         }
 
         private void Glavni_izbornik_Load(object sender, EventArgs e)
@@ -36,17 +37,25 @@ namespace eIspričnica
         }
         private void upisButton_Click(object sender, EventArgs e)
         {
-            upis.Show();
+            Upis_pacijenata upis = new Upis_pacijenata();
+            upis.ShowDialog();
         }
 
         private void statButton_Click(object sender, EventArgs e)
         {
-            statistika.Show();
+            Statistika statistika = new Statistika();
+            statistika.ShowDialog();
         }
 
-        private void predajButton_Click(object sender, EventArgs e)
+        private void odjavaButton_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void adminButton_Click(object sender, EventArgs e)
+        {
+            frmAdministracija admin = new frmAdministracija(session);
+            admin.ShowDialog();
         }
     }
 }

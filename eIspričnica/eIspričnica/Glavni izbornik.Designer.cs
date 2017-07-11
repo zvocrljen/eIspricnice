@@ -29,88 +29,78 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Glavni_izbornik));
-            this.predajButton = new System.Windows.Forms.Button();
-            this.pregledButton = new System.Windows.Forms.Button();
-            this.upisButton = new System.Windows.Forms.Button();
-            this.statButton = new System.Windows.Forms.Button();
-            this.odjavaButton = new System.Windows.Forms.Button();
-            this.adminButton = new System.Windows.Forms.Button();
+            this.btnPregled = new System.Windows.Forms.Button();
+            this.btnUpis = new System.Windows.Forms.Button();
+            this.btnStats = new System.Windows.Forms.Button();
+            this.btnOdjava = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // predajButton
+            // btnPregled
             // 
-            this.predajButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.predajButton.Location = new System.Drawing.Point(84, 61);
-            this.predajButton.Name = "predajButton";
-            this.predajButton.Size = new System.Drawing.Size(613, 69);
-            this.predajButton.TabIndex = 0;
-            this.predajButton.Text = "Predaja zahtjeva za ispričnicom";
-            this.predajButton.UseVisualStyleBackColor = true;
-            this.predajButton.Click += new System.EventHandler(this.predajButton_Click);
+            this.btnPregled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnPregled.Location = new System.Drawing.Point(84, 59);
+            this.btnPregled.Name = "btnPregled";
+            this.btnPregled.Size = new System.Drawing.Size(613, 69);
+            this.btnPregled.TabIndex = 0;
+            this.btnPregled.Text = "Pregled zahtjeva za ispričnicom";
+            this.btnPregled.UseVisualStyleBackColor = true;
             // 
-            // pregledButton
+            // btnUpis
             // 
-            this.pregledButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.pregledButton.Location = new System.Drawing.Point(84, 136);
-            this.pregledButton.Name = "pregledButton";
-            this.pregledButton.Size = new System.Drawing.Size(613, 69);
-            this.pregledButton.TabIndex = 1;
-            this.pregledButton.Text = "Pregled zahtjeva za ispričnicom";
-            this.pregledButton.UseVisualStyleBackColor = true;
+            this.btnUpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnUpis.Location = new System.Drawing.Point(84, 134);
+            this.btnUpis.Name = "btnUpis";
+            this.btnUpis.Size = new System.Drawing.Size(613, 69);
+            this.btnUpis.TabIndex = 1;
+            this.btnUpis.Text = "Upis pacijenta u Bazu Podataka";
+            this.btnUpis.UseVisualStyleBackColor = true;
+            this.btnUpis.Click += new System.EventHandler(this.upisButton_Click);
             // 
-            // upisButton
+            // btnStats
             // 
-            this.upisButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.upisButton.Location = new System.Drawing.Point(84, 211);
-            this.upisButton.Name = "upisButton";
-            this.upisButton.Size = new System.Drawing.Size(613, 69);
-            this.upisButton.TabIndex = 2;
-            this.upisButton.Text = "Upis pacijenta u Bazu Podataka";
-            this.upisButton.UseVisualStyleBackColor = true;
-            this.upisButton.Click += new System.EventHandler(this.upisButton_Click);
+            this.btnStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnStats.Location = new System.Drawing.Point(84, 209);
+            this.btnStats.Name = "btnStats";
+            this.btnStats.Size = new System.Drawing.Size(613, 69);
+            this.btnStats.TabIndex = 2;
+            this.btnStats.Text = "Statistika";
+            this.btnStats.UseVisualStyleBackColor = true;
+            this.btnStats.Click += new System.EventHandler(this.statButton_Click);
             // 
-            // statButton
+            // btnOdjava
             // 
-            this.statButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.statButton.Location = new System.Drawing.Point(84, 286);
-            this.statButton.Name = "statButton";
-            this.statButton.Size = new System.Drawing.Size(613, 69);
-            this.statButton.TabIndex = 3;
-            this.statButton.Text = "Statistika";
-            this.statButton.UseVisualStyleBackColor = true;
-            this.statButton.Click += new System.EventHandler(this.statButton_Click);
+            this.btnOdjava.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnOdjava.Location = new System.Drawing.Point(246, 436);
+            this.btnOdjava.Name = "btnOdjava";
+            this.btnOdjava.Size = new System.Drawing.Size(296, 69);
+            this.btnOdjava.TabIndex = 3;
+            this.btnOdjava.Text = "Odjavi se";
+            this.btnOdjava.UseVisualStyleBackColor = true;
+            this.btnOdjava.Click += new System.EventHandler(this.odjavaButton_Click);
             // 
-            // odjavaButton
+            // btnAdmin
             // 
-            this.odjavaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.odjavaButton.Location = new System.Drawing.Point(246, 436);
-            this.odjavaButton.Name = "odjavaButton";
-            this.odjavaButton.Size = new System.Drawing.Size(296, 69);
-            this.odjavaButton.TabIndex = 4;
-            this.odjavaButton.Text = "Odjavi se";
-            this.odjavaButton.UseVisualStyleBackColor = true;
-            // 
-            // adminButton
-            // 
-            this.adminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.adminButton.Location = new System.Drawing.Point(246, 361);
-            this.adminButton.Name = "adminButton";
-            this.adminButton.Size = new System.Drawing.Size(296, 69);
-            this.adminButton.TabIndex = 5;
-            this.adminButton.Text = "Administracija korisnika";
-            this.adminButton.UseVisualStyleBackColor = true;
+            this.btnAdmin.Enabled = false;
+            this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnAdmin.Location = new System.Drawing.Point(246, 361);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(296, 69);
+            this.btnAdmin.TabIndex = 4;
+            this.btnAdmin.Text = "Administracija korisnika";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.adminButton_Click);
             // 
             // Glavni_izbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.adminButton);
-            this.Controls.Add(this.odjavaButton);
-            this.Controls.Add(this.statButton);
-            this.Controls.Add(this.upisButton);
-            this.Controls.Add(this.pregledButton);
-            this.Controls.Add(this.predajButton);
+            this.Controls.Add(this.btnAdmin);
+            this.Controls.Add(this.btnOdjava);
+            this.Controls.Add(this.btnStats);
+            this.Controls.Add(this.btnUpis);
+            this.Controls.Add(this.btnPregled);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Glavni_izbornik";
             this.Text = "eIspričnice - Glavni izbornik";
@@ -120,12 +110,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button predajButton;
-        private System.Windows.Forms.Button pregledButton;
-        private System.Windows.Forms.Button upisButton;
-        private System.Windows.Forms.Button statButton;
-        private System.Windows.Forms.Button odjavaButton;
-        private System.Windows.Forms.Button adminButton;
+        private System.Windows.Forms.Button btnPregled;
+        private System.Windows.Forms.Button btnUpis;
+        private System.Windows.Forms.Button btnStats;
+        private System.Windows.Forms.Button btnOdjava;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }

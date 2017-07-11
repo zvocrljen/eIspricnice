@@ -16,10 +16,5 @@ namespace eIspričnica
         {
             InitializeComponent();
         }
-
-        private void provjeriButton_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

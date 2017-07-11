@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="926e30344adc42bd9bab4669e60bc6b6" Name="Diagram1">
+        <EntityTypeShape EntityType="mydbModel.bolnica" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.ispričnice" Width="1.5" PointX="9.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.pacijenti" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.povijestbolesti" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.pregledi" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.prijave" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.razinaprava" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.zahtjevi" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.zaposlenici" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="mydbModel.fk_Zaposlenici_Bolnica1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_Ispričnice_Zahtjevi1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_Pacijenti_Zaposlenici1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_Pregledi_Pacijenti1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_Zahtjevi_Pacijenti1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_PovijestBolesti_Pregledi1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_Prijave_Zaposlenici1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_Zaposlenici_RazinaPrava1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

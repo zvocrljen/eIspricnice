@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mydbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bolnica">
+          <Key>
+            <PropertyRef Name="idBolnica" />
+          </Key>
+          <Property Name="idBolnica" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="text" />
+          <Property Name="Adresa" Type="text" />
+          <Property Name="BrojTelefona" Type="text" />
+        </EntityType>
+        <EntityType Name="ispričnice">
+          <Key>
+            <PropertyRef Name="idIspričnica" />
+          </Key>
+          <Property Name="idIspričnica" Type="guid" Nullable="false" />
+          <Property Name="Datum_odobrenja" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="Zahtjevi_idZahtjevi" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pacijenti">
+          <Key>
+            <PropertyRef Name="idPacijenti" />
+          </Key>
+          <Property Name="idPacijenti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImePrezime" Type="text" />
+          <Property Name="OIB" Type="text" />
+          <Property Name="BrojPoliceOsiguranja" Type="text" />
+          <Property Name="BrojZdravstveneIskaznice" Type="text" />
+          <Property Name="lozinka" Type="varchar" MaxLength="255" />
+          <Property Name="Zaposlenici_idZaposlenici" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="povijestbolesti">
+          <Key>
+            <PropertyRef Name="idPovijestBolesti" />
+          </Key>
+          <Property Name="idPovijestBolesti" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dijagnoza" Type="text" />
+          <Property Name="Pregledi_idPregledi" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pregledi">
+          <Key>
+            <PropertyRef Name="idPregledi" />
+          </Key>
+          <Property Name="idPregledi" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pacijenti_idPacijenti" Type="int" Nullable="false" />
+          <Property Name="Datum_pregleda" Type="date" />
+        </EntityType>
+        <EntityType Name="prijave">
+          <Key>
+            <PropertyRef Name="idPrijave" />
+          </Key>
+          <Property Name="idPrijave" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datum_prijave" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="Zaposlenici_idZaposlenici" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="razinaprava">
+          <Key>
+            <PropertyRef Name="idRazinaPrava" />
+          </Key>
+          <Property Name="idRazinaPrava" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Opis" Type="text" />
+        </EntityType>
+        <EntityType Name="zahtjevi">
+          <Key>
+            <PropertyRef Name="idZahtjevi" />
+          </Key>
+          <Property Name="idZahtjevi" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pacijenti_idPacijenti" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="text" />
+          <Property Name="Datum_od" Type="date" />
+          <Property Name="Datum_do" Type="date" />
+        </EntityType>
+        <EntityType Name="zaposlenici">
+          <Key>
+            <PropertyRef Name="idZaposlenici" />
+          </Key>
+          <Property Name="idZaposlenici" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImePrezime" Type="text" />
+          <Property Name="korIme" Type="varchar" MaxLength="255" />
+          <Property Name="korLozinka" Type="varchar" MaxLength="255" />
+          <Property Name="RazinaPrava_idRazinaPrava" Type="uint" Nullable="false" />
+          <Property Name="Bolnica_idBolnica" Type="uint" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Ispričnice_Zahtjevi1">
+          <End Role="zahtjevi" Type="Self.zahtjevi" Multiplicity="1" />
+          <End Role="ispričnice" Type="Self.ispričnice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zahtjevi">
+              <PropertyRef Name="idZahtjevi" />
+            </Principal>
+            <Dependent Role="ispričnice">
+              <PropertyRef Name="Zahtjevi_idZahtjevi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pacijenti_Zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="idZaposlenici" />
+            </Principal>
+            <Dependent Role="pacijenti">
+              <PropertyRef Name="Zaposlenici_idZaposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PovijestBolesti_Pregledi1">
+          <End Role="pregledi" Type="Self.pregledi" Multiplicity="1" />
+          <End Role="povijestbolesti" Type="Self.povijestbolesti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pregledi">
+              <PropertyRef Name="idPregledi" />
+            </Principal>
+            <Dependent Role="povijestbolesti">
+              <PropertyRef Name="Pregledi_idPregledi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pregledi_Pacijenti1">
+          <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="1" />
+          <End Role="pregledi" Type="Self.pregledi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="idPacijenti" />
+            </Principal>
+            <Dependent Role="pregledi">
+              <PropertyRef Name="Pacijenti_idPacijenti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Prijave_Zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="prijave" Type="Self.prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="idZaposlenici" />
+            </Principal>
+            <Dependent Role="prijave">
+              <PropertyRef Name="Zaposlenici_idZaposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Zahtjevi_Pacijenti1">
+          <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="1" />
+          <End Role="zahtjevi" Type="Self.zahtjevi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="idPacijenti" />
+            </Principal>
+            <Dependent Role="zahtjevi">
+              <PropertyRef Name="Pacijenti_idPacijenti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Zaposlenici_Bolnica1">
+          <End Role="bolnica" Type="Self.bolnica" Multiplicity="1" />
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bolnica">
+              <PropertyRef Name="idBolnica" />
+            </Principal>
+            <Dependent Role="zaposlenici">
+              <PropertyRef Name="Bolnica_idBolnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Zaposlenici_RazinaPrava1">
+          <End Role="razinaprava" Type="Self.razinaprava" Multiplicity="1" />
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="razinaprava">
+              <PropertyRef Name="idRazinaPrava" />
+            </Principal>
+            <Dependent Role="zaposlenici">
+              <PropertyRef Name="RazinaPrava_idRazinaPrava" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mydbModelStoreContainer">
+          <EntitySet Name="bolnica" EntityType="Self.bolnica" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="ispričnice" EntityType="Self.ispričnice" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="pacijenti" EntityType="Self.pacijenti" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="povijestbolesti" EntityType="Self.povijestbolesti" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="pregledi" EntityType="Self.pregledi" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="prijave" EntityType="Self.prijave" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="razinaprava" EntityType="Self.razinaprava" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="zahtjevi" EntityType="Self.zahtjevi" Schema="mydb" store:Type="Tables" />
+          <EntitySet Name="zaposlenici" EntityType="Self.zaposlenici" Schema="mydb" store:Type="Tables" />
+          <AssociationSet Name="fk_Ispričnice_Zahtjevi1" Association="Self.fk_Ispričnice_Zahtjevi1">
+            <End Role="zahtjevi" EntitySet="zahtjevi" />
+            <End Role="ispričnice" EntitySet="ispričnice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pacijenti_Zaposlenici1" Association="Self.fk_Pacijenti_Zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="pacijenti" EntitySet="pacijenti" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PovijestBolesti_Pregledi1" Association="Self.fk_PovijestBolesti_Pregledi1">
+            <End Role="pregledi" EntitySet="pregledi" />
+            <End Role="povijestbolesti" EntitySet="povijestbolesti" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pregledi_Pacijenti1" Association="Self.fk_Pregledi_Pacijenti1">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="pregledi" EntitySet="pregledi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Prijave_Zaposlenici1" Association="Self.fk_Prijave_Zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="prijave" EntitySet="prijave" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Zahtjevi_Pacijenti1" Association="Self.fk_Zahtjevi_Pacijenti1">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="zahtjevi" EntitySet="zahtjevi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Zaposlenici_Bolnica1" Association="Self.fk_Zaposlenici_Bolnica1">
+            <End Role="bolnica" EntitySet="bolnica" />
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Zaposlenici_RazinaPrava1" Association="Self.fk_Zaposlenici_RazinaPrava1">
+            <End Role="razinaprava" EntitySet="razinaprava" />
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bolnica">
+          <Key>
+            <PropertyRef Name="idBolnica" />
+          </Key>
+          <Property Name="idBolnica" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Adresa" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="BrojTelefona" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_Zaposlenici_Bolnica1" FromRole="bolnica" ToRole="zaposlenici" />
+        </EntityType>
+        <EntityType Name="ispričnice">
+          <Key>
+            <PropertyRef Name="idIspričnica" />
+          </Key>
+          <Property Name="idIspričnica" Type="Guid" Nullable="false" />
+          <Property Name="Datum_odobrenja" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Zahtjevi_idZahtjevi" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="zahtjevi" Relationship="Self.fk_Ispričnice_Zahtjevi1" FromRole="ispričnice" ToRole="zahtjevi" />
+        </EntityType>
+        <EntityType Name="pacijenti">
+          <Key>
+            <PropertyRef Name="idPacijenti" />
+          </Key>
+          <Property Name="idPacijenti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImePrezime" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="OIB" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="BrojPoliceOsiguranja" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="BrojZdravstveneIskaznice" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="lozinka" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Zaposlenici_idZaposlenici" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_Pacijenti_Zaposlenici1" FromRole="pacijenti" ToRole="zaposlenici" />
+          <NavigationProperty Name="pregledi" Relationship="Self.fk_Pregledi_Pacijenti1" FromRole="pacijenti" ToRole="pregledi" />
+          <NavigationProperty Name="zahtjevi" Relationship="Self.fk_Zahtjevi_Pacijenti1" FromRole="pacijenti" ToRole="zahtjevi" />
+        </EntityType>
+        <EntityType Name="povijestbolesti">
+          <Key>
+            <PropertyRef Name="idPovijestBolesti" />
+          </Key>
+          <Property Name="idPovijestBolesti" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dijagnoza" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Pregledi_idPregledi" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="pregledi" Relationship="Self.fk_PovijestBolesti_Pregledi1" FromRole="povijestbolesti" ToRole="pregledi" />
+        </EntityType>
+        <EntityType Name="pregledi">
+          <Key>
+            <PropertyRef Name="idPregledi" />
+          </Key>
+          <Property Name="idPregledi" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pacijenti_idPacijenti" Type="Int32" Nullable="false" />
+          <Property Name="Datum_pregleda" Type="DateTime" />
+          <NavigationProperty Name="pacijenti" Relationship="Self.fk_Pregledi_Pacijenti1" FromRole="pregledi" ToRole="pacijenti" />
+          <NavigationProperty Name="povijestbolesti" Relationship="Self.fk_PovijestBolesti_Pregledi1" FromRole="pregledi" ToRole="povijestbolesti" />
+        </EntityType>
+        <EntityType Name="prijave">
+          <Key>
+            <PropertyRef Name="idPrijave" />
+          </Key>
+          <Property Name="idPrijave" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datum_prijave" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Zaposlenici_idZaposlenici" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_Prijave_Zaposlenici1" FromRole="prijave" ToRole="zaposlenici" />
+        </EntityType>
+        <EntityType Name="razinaprava">
+          <Key>
+            <PropertyRef Name="idRazinaPrava" />
+          </Key>
+          <Property Name="idRazinaPrava" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Opis" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_Zaposlenici_RazinaPrava1" FromRole="razinaprava" ToRole="zaposlenici" />
+        </EntityType>
+        <EntityType Name="zahtjevi">
+          <Key>
+            <PropertyRef Name="idZahtjevi" />
+          </Key>
+          <Property Name="idZahtjevi" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pacijenti_idPacijenti" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Datum_od" Type="DateTime" />
+          <Property Name="Datum_do" Type="DateTime" />
+          <NavigationProperty Name="ispričnice" Relationship="Self.fk_Ispričnice_Zahtjevi1" FromRole="zahtjevi" ToRole="ispričnice" />
+          <NavigationProperty Name="pacijenti" Relationship="Self.fk_Zahtjevi_Pacijenti1" FromRole="zahtjevi" ToRole="pacijenti" />
+        </EntityType>
+        <EntityType Name="zaposlenici">
+          <Key>
+            <PropertyRef Name="idZaposlenici" />
+          </Key>
+          <Property Name="idZaposlenici" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImePrezime" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="korIme" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="korLozinka" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RazinaPrava_idRazinaPrava" Type="Int64" Nullable="false" />
+          <Property Name="Bolnica_idBolnica" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="bolnica" Relationship="Self.fk_Zaposlenici_Bolnica1" FromRole="zaposlenici" ToRole="bolnica" />
+          <NavigationProperty Name="pacijenti" Relationship="Self.fk_Pacijenti_Zaposlenici1" FromRole="zaposlenici" ToRole="pacijenti" />
+          <NavigationProperty Name="prijave" Relationship="Self.fk_Prijave_Zaposlenici1" FromRole="zaposlenici" ToRole="prijave" />
+          <NavigationProperty Name="razinaprava" Relationship="Self.fk_Zaposlenici_RazinaPrava1" FromRole="zaposlenici" ToRole="razinaprava" />
+        </EntityType>
+        <Association Name="fk_Zaposlenici_Bolnica1">
+          <End Role="bolnica" Type="Self.bolnica" Multiplicity="1" />
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bolnica">
+              <PropertyRef Name="idBolnica" />
+            </Principal>
+            <Dependent Role="zaposlenici">
+              <PropertyRef Name="Bolnica_idBolnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ispričnice_Zahtjevi1">
+          <End Role="zahtjevi" Type="Self.zahtjevi" Multiplicity="1" />
+          <End Role="ispričnice" Type="Self.ispričnice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zahtjevi">
+              <PropertyRef Name="idZahtjevi" />
+            </Principal>
+            <Dependent Role="ispričnice">
+              <PropertyRef Name="Zahtjevi_idZahtjevi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pacijenti_Zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="idZaposlenici" />
+            </Principal>
+            <Dependent Role="pacijenti">
+              <PropertyRef Name="Zaposlenici_idZaposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pregledi_Pacijenti1">
+          <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="1" />
+          <End Role="pregledi" Type="Self.pregledi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="idPacijenti" />
+            </Principal>
+            <Dependent Role="pregledi">
+              <PropertyRef Name="Pacijenti_idPacijenti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Zahtjevi_Pacijenti1">
+          <End Role="pacijenti" Type="Self.pacijenti" Multiplicity="1" />
+          <End Role="zahtjevi" Type="Self.zahtjevi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="idPacijenti" />
+            </Principal>
+            <Dependent Role="zahtjevi">
+              <PropertyRef Name="Pacijenti_idPacijenti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PovijestBolesti_Pregledi1">
+          <End Role="pregledi" Type="Self.pregledi" Multiplicity="1" />
+          <End Role="povijestbolesti" Type="Self.povijestbolesti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pregledi">
+              <PropertyRef Name="idPregledi" />
+            </Principal>
+            <Dependent Role="povijestbolesti">
+              <PropertyRef Name="Pregledi_idPregledi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Prijave_Zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="prijave" Type="Self.prijave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="idZaposlenici" />
+            </Principal>
+            <Dependent Role="prijave">
+              <PropertyRef Name="Zaposlenici_idZaposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Zaposlenici_RazinaPrava1">
+          <End Role="razinaprava" Type="Self.razinaprava" Multiplicity="1" />
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="razinaprava">
+              <PropertyRef Name="idRazinaPrava" />
+            </Principal>
+            <Dependent Role="zaposlenici">
+              <PropertyRef Name="RazinaPrava_idRazinaPrava" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mydbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bolnica" EntityType="Self.bolnica" />
+          <EntitySet Name="ispričnice" EntityType="Self.ispričnice" />
+          <EntitySet Name="pacijenti" EntityType="Self.pacijenti" />
+          <EntitySet Name="povijestbolesti" EntityType="Self.povijestbolesti" />
+          <EntitySet Name="pregledi" EntityType="Self.pregledi" />
+          <EntitySet Name="prijave" EntityType="Self.prijave" />
+          <EntitySet Name="razinaprava" EntityType="Self.razinaprava" />
+          <EntitySet Name="zahtjevi" EntityType="Self.zahtjevi" />
+          <EntitySet Name="zaposlenici" EntityType="Self.zaposlenici" />
+          <AssociationSet Name="fk_Zaposlenici_Bolnica1" Association="Self.fk_Zaposlenici_Bolnica1">
+            <End Role="bolnica" EntitySet="bolnica" />
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ispričnice_Zahtjevi1" Association="Self.fk_Ispričnice_Zahtjevi1">
+            <End Role="zahtjevi" EntitySet="zahtjevi" />
+            <End Role="ispričnice" EntitySet="ispričnice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pacijenti_Zaposlenici1" Association="Self.fk_Pacijenti_Zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="pacijenti" EntitySet="pacijenti" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pregledi_Pacijenti1" Association="Self.fk_Pregledi_Pacijenti1">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="pregledi" EntitySet="pregledi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Zahtjevi_Pacijenti1" Association="Self.fk_Zahtjevi_Pacijenti1">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="zahtjevi" EntitySet="zahtjevi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PovijestBolesti_Pregledi1" Association="Self.fk_PovijestBolesti_Pregledi1">
+            <End Role="pregledi" EntitySet="pregledi" />
+            <End Role="povijestbolesti" EntitySet="povijestbolesti" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Prijave_Zaposlenici1" Association="Self.fk_Prijave_Zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="prijave" EntitySet="prijave" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Zaposlenici_RazinaPrava1" Association="Self.fk_Zaposlenici_RazinaPrava1">
+            <End Role="razinaprava" EntitySet="razinaprava" />
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mydbModelStoreContainer" CdmEntityContainer="mydbEntities1">
+          <EntitySetMapping Name="bolnica">
+            <EntityTypeMapping TypeName="mydbModel.bolnica">
+              <MappingFragment StoreEntitySet="bolnica">
+                <ScalarProperty Name="idBolnica" ColumnName="idBolnica" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ispričnice">
+            <EntityTypeMapping TypeName="mydbModel.ispričnice">
+              <MappingFragment StoreEntitySet="ispričnice">
+                <ScalarProperty Name="idIspričnica" ColumnName="idIspričnica" />
+                <ScalarProperty Name="Datum_odobrenja" ColumnName="Datum_odobrenja" />
+                <ScalarProperty Name="Zahtjevi_idZahtjevi" ColumnName="Zahtjevi_idZahtjevi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacijenti">
+            <EntityTypeMapping TypeName="mydbModel.pacijenti">
+              <MappingFragment StoreEntitySet="pacijenti">
+                <ScalarProperty Name="idPacijenti" ColumnName="idPacijenti" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="BrojPoliceOsiguranja" ColumnName="BrojPoliceOsiguranja" />
+                <ScalarProperty Name="BrojZdravstveneIskaznice" ColumnName="BrojZdravstveneIskaznice" />
+                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+                <ScalarProperty Name="Zaposlenici_idZaposlenici" ColumnName="Zaposlenici_idZaposlenici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="povijestbolesti">
+            <EntityTypeMapping TypeName="mydbModel.povijestbolesti">
+              <MappingFragment StoreEntitySet="povijestbolesti">
+                <ScalarProperty Name="idPovijestBolesti" ColumnName="idPovijestBolesti" />
+                <ScalarProperty Name="Dijagnoza" ColumnName="Dijagnoza" />
+                <ScalarProperty Name="Pregledi_idPregledi" ColumnName="Pregledi_idPregledi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pregledi">
+            <EntityTypeMapping TypeName="mydbModel.pregledi">
+              <MappingFragment StoreEntitySet="pregledi">
+                <ScalarProperty Name="idPregledi" ColumnName="idPregledi" />
+                <ScalarProperty Name="Pacijenti_idPacijenti" ColumnName="Pacijenti_idPacijenti" />
+                <ScalarProperty Name="Datum_pregleda" ColumnName="Datum_pregleda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prijave">
+            <EntityTypeMapping TypeName="mydbModel.prijave">
+              <MappingFragment StoreEntitySet="prijave">
+                <ScalarProperty Name="idPrijave" ColumnName="idPrijave" />
+                <ScalarProperty Name="datum_prijave" ColumnName="datum_prijave" />
+                <ScalarProperty Name="Zaposlenici_idZaposlenici" ColumnName="Zaposlenici_idZaposlenici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="razinaprava">
+            <EntityTypeMapping TypeName="mydbModel.razinaprava">
+              <MappingFragment StoreEntitySet="razinaprava">
+                <ScalarProperty Name="idRazinaPrava" ColumnName="idRazinaPrava" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zahtjevi">
+            <EntityTypeMapping TypeName="mydbModel.zahtjevi">
+              <MappingFragment StoreEntitySet="zahtjevi">
+                <ScalarProperty Name="idZahtjevi" ColumnName="idZahtjevi" />
+                <ScalarProperty Name="Pacijenti_idPacijenti" ColumnName="Pacijenti_idPacijenti" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Datum_od" ColumnName="Datum_od" />
+                <ScalarProperty Name="Datum_do" ColumnName="Datum_do" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zaposlenici">
+            <EntityTypeMapping TypeName="mydbModel.zaposlenici">
+              <MappingFragment StoreEntitySet="zaposlenici">
+                <ScalarProperty Name="idZaposlenici" ColumnName="idZaposlenici" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="korIme" ColumnName="korIme" />
+                <ScalarProperty Name="korLozinka" ColumnName="korLozinka" />
+                <ScalarProperty Name="RazinaPrava_idRazinaPrava" ColumnName="RazinaPrava_idRazinaPrava" />
+                <ScalarProperty Name="Bolnica_idBolnica" ColumnName="Bolnica_idBolnica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

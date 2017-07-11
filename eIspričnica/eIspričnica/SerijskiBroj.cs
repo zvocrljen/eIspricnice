@@ -19,34 +19,92 @@ namespace eIspričnica
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            textBox1.BackColor = Color.White;
+            txtBroj1.BackColor = Color.White;
             try
             {
-                if (textBox1.Text.Length > 5)
+                if (txtBroj1.Text.Length > 8)
                 {
-                    textBox1.BackColor = Color.Red;
-                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Prvi broj mora imati 5 znamenki!");
+                    txtBroj1.BackColor = Color.Red;
+                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Prvi broj mora imati 8 znamenki!");
                 }
             }
             catch(NeispravanSerijskiBroj ex)
             {
-                MessageBox.Show(ex.DodatnaPoruka);
+                MessageBox.Show(ex.DodatnaPoruka, "eIspričnice - Greška 5", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            textBox2.BackColor = Color.White;
+            txtBroj2.BackColor = Color.White;
             try
             {
-                if (textBox2.Text.Length > 8)
+                if (txtBroj2.Text.Length > 4)
                 {
-                    textBox2.BackColor = Color.Red;
-                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Drugi broj mora imati 8 znamenki!");
+                    txtBroj2.BackColor = Color.Red;
+                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Drugi broj mora imati 4 znamenke!");
                 }
             }
             catch(NeispravanSerijskiBroj ex)
+            {
+                MessageBox.Show(ex.DodatnaPoruka);
+            }
+        }
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            txtBroj3.BackColor = Color.White;
+            try
+            {
+                if (txtBroj3.Text.Length > 4)
+                {
+                    txtBroj3.BackColor = Color.Red;
+                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Drugi broj mora imati 4 znamenke!");
+                }
+            }
+            catch (NeispravanSerijskiBroj ex)
+            {
+                MessageBox.Show(ex.DodatnaPoruka);
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DBService.Login prijava = new DBService.Login();
+            string rezultat = prijava.Provjera(txtBroj1.Text + "-" + txtBroj2.Text + "-" + txtBroj3.Text + "-" + txtBroj4.Text + "-" + txtBroj5.Text);
+            if (rezultat == "") MessageBox.Show("Ispričnica nije pronađena u bazi podataka!", "eIspričnice - Obavijest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (rezultat == "null") MessageBox.Show("Greška 3: Povezivanje na bazu nije moguće!", "eIspričnice - Greška 3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show("Ispričnica je pronađena! Podaci: \r\n" + rezultat, "eIspričnice - Podaci o ispričnici", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            txtBroj4.BackColor = Color.White;
+            try
+            {
+                if (txtBroj4.Text.Length > 4)
+                {
+                    txtBroj4.BackColor = Color.Red;
+                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Drugi broj mora imati 4 znamenke!");
+                }
+            }
+            catch (NeispravanSerijskiBroj ex)
+            {
+                MessageBox.Show(ex.DodatnaPoruka);
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            txtBroj5.BackColor = Color.White;
+            try
+            {
+                if (txtBroj5.Text.Length > 16)
+                {
+                    txtBroj5.BackColor = Color.Red;
+                    throw new NeispravanSerijskiBroj("Neispravan serijski broj ispričnice! Drugi broj mora imati 4 znamenke!");
+                }
+            }
+            catch (NeispravanSerijskiBroj ex)
             {
                 MessageBox.Show(ex.DodatnaPoruka);
             }

@@ -29,110 +29,98 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Prijava));
-            this.inputKorIme = new System.Windows.Forms.TextBox();
-            this.korIme = new System.Windows.Forms.Label();
-            this.lozinka = new System.Windows.Forms.Label();
-            this.inputLozinka = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.prijavaButton = new System.Windows.Forms.Button();
-            this.linkProvjera = new System.Windows.Forms.LinkLabel();
-            this.linkRegistracija = new System.Windows.Forms.LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.txtKorIme = new System.Windows.Forms.TextBox();
+            this.lblKorIme = new System.Windows.Forms.Label();
+            this.lblLozinka = new System.Windows.Forms.Label();
+            this.txtLozinka = new System.Windows.Forms.TextBox();
+            this.picKorisnik = new System.Windows.Forms.PictureBox();
+            this.btnPrijava = new System.Windows.Forms.Button();
+            this.lnkProvjera = new System.Windows.Forms.LinkLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.picKorisnik)).BeginInit();
             this.SuspendLayout();
             // 
-            // inputKorIme
+            // txtKorIme
             // 
-            this.inputKorIme.Location = new System.Drawing.Point(300, 299);
-            this.inputKorIme.Name = "inputKorIme";
-            this.inputKorIme.Size = new System.Drawing.Size(200, 20);
-            this.inputKorIme.TabIndex = 0;
+            this.txtKorIme.Location = new System.Drawing.Point(300, 299);
+            this.txtKorIme.Name = "txtKorIme";
+            this.txtKorIme.Size = new System.Drawing.Size(200, 20);
+            this.txtKorIme.TabIndex = 0;
             // 
-            // korIme
+            // lblKorIme
             // 
-            this.korIme.AutoSize = true;
-            this.korIme.Location = new System.Drawing.Point(279, 283);
-            this.korIme.Name = "korIme";
-            this.korIme.Size = new System.Drawing.Size(75, 13);
-            this.korIme.TabIndex = 1;
-            this.korIme.Text = "Korisničko ime";
+            this.lblKorIme.AutoSize = true;
+            this.lblKorIme.Location = new System.Drawing.Point(297, 283);
+            this.lblKorIme.Name = "lblKorIme";
+            this.lblKorIme.Size = new System.Drawing.Size(75, 13);
+            this.lblKorIme.TabIndex = 1;
+            this.lblKorIme.Text = "Korisničko ime";
             // 
-            // lozinka
+            // lblLozinka
             // 
-            this.lozinka.AutoSize = true;
-            this.lozinka.Location = new System.Drawing.Point(279, 322);
-            this.lozinka.Name = "lozinka";
-            this.lozinka.Size = new System.Drawing.Size(44, 13);
-            this.lozinka.TabIndex = 2;
-            this.lozinka.Text = "Lozinka";
+            this.lblLozinka.AutoSize = true;
+            this.lblLozinka.Location = new System.Drawing.Point(297, 322);
+            this.lblLozinka.Name = "lblLozinka";
+            this.lblLozinka.Size = new System.Drawing.Size(44, 13);
+            this.lblLozinka.TabIndex = 2;
+            this.lblLozinka.Text = "Lozinka";
             // 
-            // inputLozinka
+            // txtLozinka
             // 
-            this.inputLozinka.Location = new System.Drawing.Point(300, 338);
-            this.inputLozinka.Name = "inputLozinka";
-            this.inputLozinka.Size = new System.Drawing.Size(200, 20);
-            this.inputLozinka.TabIndex = 3;
-            this.inputLozinka.UseSystemPasswordChar = true;
+            this.txtLozinka.Location = new System.Drawing.Point(300, 338);
+            this.txtLozinka.Name = "txtLozinka";
+            this.txtLozinka.Size = new System.Drawing.Size(200, 20);
+            this.txtLozinka.TabIndex = 3;
+            this.txtLozinka.UseSystemPasswordChar = true;
             // 
-            // pictureBox1
+            // picKorisnik
             // 
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(300, 70);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.picKorisnik.ErrorImage = ((System.Drawing.Image)(resources.GetObject("picKorisnik.ErrorImage")));
+            this.picKorisnik.Image = ((System.Drawing.Image)(resources.GetObject("picKorisnik.Image")));
+            this.picKorisnik.Location = new System.Drawing.Point(300, 70);
+            this.picKorisnik.Name = "picKorisnik";
+            this.picKorisnik.Size = new System.Drawing.Size(200, 200);
+            this.picKorisnik.TabIndex = 4;
+            this.picKorisnik.TabStop = false;
             // 
-            // prijavaButton
+            // btnPrijava
             // 
-            this.prijavaButton.Location = new System.Drawing.Point(365, 368);
-            this.prijavaButton.Name = "prijavaButton";
-            this.prijavaButton.Size = new System.Drawing.Size(75, 23);
-            this.prijavaButton.TabIndex = 5;
-            this.prijavaButton.Text = "Prijava";
-            this.prijavaButton.UseVisualStyleBackColor = true;
-            this.prijavaButton.Click += new System.EventHandler(this.prijavaButton_Click);
+            this.btnPrijava.Location = new System.Drawing.Point(365, 368);
+            this.btnPrijava.Name = "btnPrijava";
+            this.btnPrijava.Size = new System.Drawing.Size(75, 23);
+            this.btnPrijava.TabIndex = 5;
+            this.btnPrijava.Text = "Prijava";
+            this.btnPrijava.UseVisualStyleBackColor = true;
+            this.btnPrijava.Click += new System.EventHandler(this.prijavaButton_Click);
             // 
-            // linkProvjera
+            // lnkProvjera
             // 
-            this.linkProvjera.AutoSize = true;
-            this.linkProvjera.Location = new System.Drawing.Point(13, 536);
-            this.linkProvjera.Name = "linkProvjera";
-            this.linkProvjera.Size = new System.Drawing.Size(176, 13);
-            this.linkProvjera.TabIndex = 6;
-            this.linkProvjera.TabStop = true;
-            this.linkProvjera.Text = "Provjeri ispričnicu po serijskom broju";
-            this.linkProvjera.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelaProvjera_LinkClicked);
-            // 
-            // linkRegistracija
-            // 
-            this.linkRegistracija.AutoSize = true;
-            this.linkRegistracija.Location = new System.Drawing.Point(332, 404);
-            this.linkRegistracija.Name = "linkRegistracija";
-            this.linkRegistracija.Size = new System.Drawing.Size(142, 13);
-            this.linkRegistracija.TabIndex = 7;
-            this.linkRegistracija.TabStop = true;
-            this.linkRegistracija.Text = "Nemaš račun? Registriraj se!";
-            this.linkRegistracija.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lnkProvjera.AutoSize = true;
+            this.lnkProvjera.Location = new System.Drawing.Point(313, 394);
+            this.lnkProvjera.Name = "lnkProvjera";
+            this.lnkProvjera.Size = new System.Drawing.Size(176, 13);
+            this.lnkProvjera.TabIndex = 6;
+            this.lnkProvjera.TabStop = true;
+            this.lnkProvjera.Text = "Provjeri ispričnicu po serijskom broju";
+            this.lnkProvjera.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelaProvjera_LinkClicked);
             // 
             // Prijava
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.linkRegistracija);
-            this.Controls.Add(this.linkProvjera);
-            this.Controls.Add(this.prijavaButton);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.inputLozinka);
-            this.Controls.Add(this.lozinka);
-            this.Controls.Add(this.korIme);
-            this.Controls.Add(this.inputKorIme);
+            this.Controls.Add(this.lnkProvjera);
+            this.Controls.Add(this.btnPrijava);
+            this.Controls.Add(this.picKorisnik);
+            this.Controls.Add(this.txtLozinka);
+            this.Controls.Add(this.lblLozinka);
+            this.Controls.Add(this.lblKorIme);
+            this.Controls.Add(this.txtKorIme);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Prijava";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eIspričnice - Prijava u aplikaciju";
             this.Load += new System.EventHandler(this.Prijava_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picKorisnik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,14 +128,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox inputKorIme;
-        private System.Windows.Forms.Label korIme;
-        private System.Windows.Forms.Label lozinka;
-        private System.Windows.Forms.TextBox inputLozinka;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button prijavaButton;
-        private System.Windows.Forms.LinkLabel linkProvjera;
-        private System.Windows.Forms.LinkLabel linkRegistracija;
+        private System.Windows.Forms.TextBox txtKorIme;
+        private System.Windows.Forms.Label lblKorIme;
+        private System.Windows.Forms.Label lblLozinka;
+        private System.Windows.Forms.TextBox txtLozinka;
+        private System.Windows.Forms.PictureBox picKorisnik;
+        private System.Windows.Forms.Button btnPrijava;
+        private System.Windows.Forms.LinkLabel lnkProvjera;
     }
 }
 
