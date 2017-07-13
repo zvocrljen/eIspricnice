@@ -103,6 +103,7 @@
             this.Controls.Add(this.btnPregled);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Glavni_izbornik";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eIspričnice - Glavni izbornik";
             this.Load += new System.EventHandler(this.Glavni_izbornik_Load);
             this.ResumeLayout(false);

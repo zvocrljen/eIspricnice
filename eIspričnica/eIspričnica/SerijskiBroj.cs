@@ -17,7 +17,7 @@ namespace eIspričnica
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtBroj1_TextChanged(object sender, EventArgs e)
         {
             txtBroj1.BackColor = Color.White;
             try
@@ -35,7 +35,7 @@ namespace eIspričnica
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void txtBroj2_TextChanged(object sender, EventArgs e)
         {
             txtBroj2.BackColor = Color.White;
             try
@@ -51,7 +51,7 @@ namespace eIspričnica
                 MessageBox.Show(ex.DodatnaPoruka);
             }
         }
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void txtBroj3_TextChanged(object sender, EventArgs e)
         {
             txtBroj3.BackColor = Color.White;
             try
@@ -67,16 +67,8 @@ namespace eIspričnica
                 MessageBox.Show(ex.DodatnaPoruka);
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DBService.Login prijava = new DBService.Login();
-            string rezultat = prijava.Provjera(txtBroj1.Text + "-" + txtBroj2.Text + "-" + txtBroj3.Text + "-" + txtBroj4.Text + "-" + txtBroj5.Text);
-            if (rezultat == "") MessageBox.Show("Ispričnica nije pronađena u bazi podataka!", "eIspričnice - Obavijest", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else if (rezultat == "null") MessageBox.Show("Greška 3: Povezivanje na bazu nije moguće!", "eIspričnice - Greška 3", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else MessageBox.Show("Ispričnica je pronađena! Podaci: \r\n" + rezultat, "eIspričnice - Podaci o ispričnici", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private void txtBroj4_TextChanged(object sender, EventArgs e)
         {
             txtBroj4.BackColor = Color.White;
             try
@@ -93,7 +85,7 @@ namespace eIspričnica
             }
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void txtBroj5_TextChanged(object sender, EventArgs e)
         {
             txtBroj5.BackColor = Color.White;
             try
@@ -108,6 +100,14 @@ namespace eIspričnica
             {
                 MessageBox.Show(ex.DodatnaPoruka);
             }
+        }
+        private void btnProvjeri_Click(object sender, EventArgs e)
+        {
+            DBService.Login prijava = new DBService.Login();
+            string rezultat = prijava.Provjera(txtBroj1.Text + "-" + txtBroj2.Text + "-" + txtBroj3.Text + "-" + txtBroj4.Text + "-" + txtBroj5.Text);
+            if (rezultat == "") MessageBox.Show("Ispričnica nije pronađena u bazi podataka!", "eIspričnice - Obavijest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (rezultat == "null") MessageBox.Show("Greška 3: Povezivanje na bazu nije moguće!", "eIspričnice - Greška 3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show("Ispričnica je pronađena! Podaci: \r\n" + rezultat, "eIspričnice - Podaci o ispričnici", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace eIspričnica
         public Glavni_izbornik(Sesija sess)
         {
             InitializeComponent();
-            if (sess.RazinaPrava == 2) btnAdmin.Enabled=true;
+            SkiravnjeGumba(sess);
             session = sess;
         }
 
@@ -32,9 +32,14 @@ namespace eIspričnica
         {
             if (e.KeyCode.ToString() == "F1")
             {
-                Help.ShowHelp(null, helpLocation);
+                Help.ShowHelp(null, helpLocation, HelpNavigator.Topic, "IDH_Topic40.htm");
             }
         }
+        private void SkiravnjeGumba(Sesija sess)
+        {
+            if (sess.RazinaPrava == 2) btnAdmin.Enabled = true;
+        }
+
         private void upisButton_Click(object sender, EventArgs e)
         {
             Upis_pacijenata upis = new Upis_pacijenata();
@@ -47,15 +52,15 @@ namespace eIspričnica
             statistika.ShowDialog();
         }
 
-        private void odjavaButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void adminButton_Click(object sender, EventArgs e)
         {
             frmAdministracija admin = new frmAdministracija(session);
             admin.ShowDialog();
+        }
+
+        private void odjavaButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

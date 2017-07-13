@@ -29,7 +29,7 @@ namespace eIspričnica
         {
             if (e.KeyCode.ToString() == "F1")
             {
-                Help.ShowHelp(null, helpLocation);
+                Help.ShowHelp(null, helpLocation, HelpNavigator.Topic, "IDH_Topic10.htm");
             }
         }
         private void lnkProvjera_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -66,5 +66,13 @@ namespace eIspričnica
                 this.Close();
             }
          }
+
+        private void txtLozinka_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode.ToString() == "Return")
+            {
+                prijavaButton_Click(sender, e);
+            }
+        }
     }
 }

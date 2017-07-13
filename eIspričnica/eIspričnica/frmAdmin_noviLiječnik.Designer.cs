@@ -195,6 +195,7 @@
             this.Controls.Add(this.txtID);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdmin_noviLiječnik";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "eIspričnice - Dodavanje/izmjena";
             this.Load += new System.EventHandler(this.frmAdmin_novi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.razinapravaBindingSource)).EndInit();

@@ -172,6 +172,7 @@
             this.Controls.Add(this.txtID);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdmin_urediPacijenta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "eIspričnice - Uredi pacijenta";
             this.Load += new System.EventHandler(this.frmAdmin_urediPacijenta_Load);
             this.ResumeLayout(false);

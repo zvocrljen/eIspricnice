@@ -51,7 +51,7 @@ namespace eIspričnica
         {
             if (e.KeyCode.ToString() == "F1")
             {
-                Help.ShowHelp(null, helpLocation);
+                Help.ShowHelp(null, helpLocation, HelpNavigator.Topic, "IDH_Topic60.htm");
             }
         }
         private void dgvZaposlenici_SelectionChanged(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace eIspričnica
             }
             else
             {
-                MessageBox.Show("Niste odabrali liječnika za brisanje!", "eIspričnice - Obavijest", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Niste odabrali liječnika za brisanje!", "eIspričnice - Obavijest", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void btnIzmjena_Click(object sender, EventArgs e)

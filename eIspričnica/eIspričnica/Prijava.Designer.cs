@@ -71,6 +71,7 @@
             this.txtLozinka.Size = new System.Drawing.Size(200, 20);
             this.txtLozinka.TabIndex = 3;
             this.txtLozinka.UseSystemPasswordChar = true;
+            this.txtLozinka.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLozinka_KeyDown);
             // 
             // picKorisnik
             // 

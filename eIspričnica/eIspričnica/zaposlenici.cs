@@ -34,5 +34,6 @@ namespace eIspričnica
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<prijave> prijave { get; set; }
         public virtual razinaprava razinaprava { get; set; }
+        public virtual bolnica imeBolnice { get; set; }
     }
 }

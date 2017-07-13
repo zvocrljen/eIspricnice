@@ -46,7 +46,7 @@
             this.txtBroj1.Name = "txtBroj1";
             this.txtBroj1.Size = new System.Drawing.Size(73, 20);
             this.txtBroj1.TabIndex = 0;
-            this.txtBroj1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtBroj1.TextChanged += new System.EventHandler(this.txtBroj1_TextChanged);
             // 
             // label1
             // 
@@ -63,7 +63,7 @@
             this.txtBroj2.Name = "txtBroj2";
             this.txtBroj2.Size = new System.Drawing.Size(42, 20);
             this.txtBroj2.TabIndex = 1;
-            this.txtBroj2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtBroj2.TextChanged += new System.EventHandler(this.txtBroj2_TextChanged);
             // 
             // txtBroj3
             // 
@@ -71,7 +71,7 @@
             this.txtBroj3.Name = "txtBroj3";
             this.txtBroj3.Size = new System.Drawing.Size(42, 20);
             this.txtBroj3.TabIndex = 2;
-            this.txtBroj3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtBroj3.TextChanged += new System.EventHandler(this.txtBroj3_TextChanged);
             // 
             // label2
             // 
@@ -88,7 +88,7 @@
             this.txtBroj5.Name = "txtBroj5";
             this.txtBroj5.Size = new System.Drawing.Size(111, 20);
             this.txtBroj5.TabIndex = 4;
-            this.txtBroj5.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtBroj5.TextChanged += new System.EventHandler(this.txtBroj4_TextChanged);
             // 
             // label3
             // 
@@ -107,7 +107,7 @@
             this.btnProvjeri.TabIndex = 5;
             this.btnProvjeri.Text = "Provjeri";
             this.btnProvjeri.UseVisualStyleBackColor = true;
-            this.btnProvjeri.Click += new System.EventHandler(this.button1_Click);
+            this.btnProvjeri.Click += new System.EventHandler(this.btnProvjeri_Click);
             // 
             // txtBroj4
             // 
@@ -115,7 +115,7 @@
             this.txtBroj4.Name = "txtBroj4";
             this.txtBroj4.Size = new System.Drawing.Size(42, 20);
             this.txtBroj4.TabIndex = 3;
-            this.txtBroj4.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.txtBroj4.TextChanged += new System.EventHandler(this.txtBroj5_TextChanged);
             // 
             // label4
             // 

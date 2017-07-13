@@ -31,12 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministracija));
             this.dgvZaposlenici = new System.Windows.Forms.DataGridView();
-            this.idZaposleniciDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imePrezimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.korImeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.korLozinkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bolnicaidBolnicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zaposleniciBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDodaj = new System.Windows.Forms.Button();
             this.btnIzbrisi = new System.Windows.Forms.Button();
@@ -51,6 +45,12 @@
             this.btnIzmjeni = new System.Windows.Forms.Button();
             this.btnUredi = new System.Windows.Forms.Button();
             this.btnBrisi = new System.Windows.Forms.Button();
+            this.idZaposleniciDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imePrezimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.korImeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.korLozinkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bolnicaidBolnicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zaposleniciBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacijenti)).BeginInit();
@@ -78,48 +78,6 @@
             this.dgvZaposlenici.Size = new System.Drawing.Size(760, 238);
             this.dgvZaposlenici.TabIndex = 0;
             this.dgvZaposlenici.SelectionChanged += new System.EventHandler(this.dgvZaposlenici_SelectionChanged);
-            // 
-            // idZaposleniciDataGridViewTextBoxColumn
-            // 
-            this.idZaposleniciDataGridViewTextBoxColumn.DataPropertyName = "idZaposlenici";
-            this.idZaposleniciDataGridViewTextBoxColumn.HeaderText = "idZaposlenici";
-            this.idZaposleniciDataGridViewTextBoxColumn.Name = "idZaposleniciDataGridViewTextBoxColumn";
-            this.idZaposleniciDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // imePrezimeDataGridViewTextBoxColumn1
-            // 
-            this.imePrezimeDataGridViewTextBoxColumn1.DataPropertyName = "ImePrezime";
-            this.imePrezimeDataGridViewTextBoxColumn1.HeaderText = "ImePrezime";
-            this.imePrezimeDataGridViewTextBoxColumn1.Name = "imePrezimeDataGridViewTextBoxColumn1";
-            this.imePrezimeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // korImeDataGridViewTextBoxColumn
-            // 
-            this.korImeDataGridViewTextBoxColumn.DataPropertyName = "korIme";
-            this.korImeDataGridViewTextBoxColumn.HeaderText = "korIme";
-            this.korImeDataGridViewTextBoxColumn.Name = "korImeDataGridViewTextBoxColumn";
-            this.korImeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // korLozinkaDataGridViewTextBoxColumn
-            // 
-            this.korLozinkaDataGridViewTextBoxColumn.DataPropertyName = "korLozinka";
-            this.korLozinkaDataGridViewTextBoxColumn.HeaderText = "korLozinka";
-            this.korLozinkaDataGridViewTextBoxColumn.Name = "korLozinkaDataGridViewTextBoxColumn";
-            this.korLozinkaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // razinaPravaidRazinaPravaDataGridViewTextBoxColumn
-            // 
-            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.DataPropertyName = "RazinaPrava_idRazinaPrava";
-            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.HeaderText = "RazinaPrava_idRazinaPrava";
-            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.Name = "razinaPravaidRazinaPravaDataGridViewTextBoxColumn";
-            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bolnicaidBolnicaDataGridViewTextBoxColumn
-            // 
-            this.bolnicaidBolnicaDataGridViewTextBoxColumn.DataPropertyName = "Bolnica_idBolnica";
-            this.bolnicaidBolnicaDataGridViewTextBoxColumn.HeaderText = "Bolnica_idBolnica";
-            this.bolnicaidBolnicaDataGridViewTextBoxColumn.Name = "bolnicaidBolnicaDataGridViewTextBoxColumn";
-            this.bolnicaidBolnicaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // zaposleniciBindingSource
             // 
@@ -242,6 +200,48 @@
             this.btnBrisi.UseVisualStyleBackColor = true;
             this.btnBrisi.Click += new System.EventHandler(this.btnBrisi_Click);
             // 
+            // idZaposleniciDataGridViewTextBoxColumn
+            // 
+            this.idZaposleniciDataGridViewTextBoxColumn.DataPropertyName = "idZaposlenici";
+            this.idZaposleniciDataGridViewTextBoxColumn.HeaderText = "idZaposlenici";
+            this.idZaposleniciDataGridViewTextBoxColumn.Name = "idZaposleniciDataGridViewTextBoxColumn";
+            this.idZaposleniciDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // imePrezimeDataGridViewTextBoxColumn1
+            // 
+            this.imePrezimeDataGridViewTextBoxColumn1.DataPropertyName = "ImePrezime";
+            this.imePrezimeDataGridViewTextBoxColumn1.HeaderText = "ImePrezime";
+            this.imePrezimeDataGridViewTextBoxColumn1.Name = "imePrezimeDataGridViewTextBoxColumn1";
+            this.imePrezimeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // korImeDataGridViewTextBoxColumn
+            // 
+            this.korImeDataGridViewTextBoxColumn.DataPropertyName = "korIme";
+            this.korImeDataGridViewTextBoxColumn.HeaderText = "korIme";
+            this.korImeDataGridViewTextBoxColumn.Name = "korImeDataGridViewTextBoxColumn";
+            this.korImeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // korLozinkaDataGridViewTextBoxColumn
+            // 
+            this.korLozinkaDataGridViewTextBoxColumn.DataPropertyName = "korLozinka";
+            this.korLozinkaDataGridViewTextBoxColumn.HeaderText = "korLozinka";
+            this.korLozinkaDataGridViewTextBoxColumn.Name = "korLozinkaDataGridViewTextBoxColumn";
+            this.korLozinkaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // razinaPravaidRazinaPravaDataGridViewTextBoxColumn
+            // 
+            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.DataPropertyName = "RazinaPrava_idRazinaPrava";
+            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.HeaderText = "RazinaPrava_idRazinaPrava";
+            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.Name = "razinaPravaidRazinaPravaDataGridViewTextBoxColumn";
+            this.razinaPravaidRazinaPravaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bolnicaidBolnicaDataGridViewTextBoxColumn
+            // 
+            this.bolnicaidBolnicaDataGridViewTextBoxColumn.DataPropertyName = "Bolnica_idBolnica";
+            this.bolnicaidBolnicaDataGridViewTextBoxColumn.HeaderText = "Bolnica_idBolnica";
+            this.bolnicaidBolnicaDataGridViewTextBoxColumn.Name = "bolnicaidBolnicaDataGridViewTextBoxColumn";
+            this.bolnicaidBolnicaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmAdministracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +256,7 @@
             this.Controls.Add(this.dgvZaposlenici);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdministracija";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eIspričnice - Administracija";
             this.Load += new System.EventHandler(this.FormAdministracija_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenici)).EndInit();
@@ -281,13 +282,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn brojZdravstveneIskazniceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lozinkaDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource zaposleniciBindingSource;
+        private System.Windows.Forms.Button btnUredi;
+        private System.Windows.Forms.Button btnBrisi;
         private System.Windows.Forms.DataGridViewTextBoxColumn idZaposleniciDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imePrezimeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn korImeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korLozinkaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn razinaPravaidRazinaPravaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bolnicaidBolnicaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnUredi;
-        private System.Windows.Forms.Button btnBrisi;
     }
 }
