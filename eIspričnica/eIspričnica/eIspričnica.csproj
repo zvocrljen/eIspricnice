@@ -143,23 +143,11 @@
     <Compile Include="povijestbolesti.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="PredajaZahtjeva.cs">
+    <Compile Include="frmPregledZahtjeva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PredajaZahtjeva.Designer.cs">
-      <DependentUpon>PredajaZahtjeva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pregled zahtjeva liječnik.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pregled zahtjeva liječnik.Designer.cs">
-      <DependentUpon>Pregled zahtjeva liječnik.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pregled zahtjeva.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pregled zahtjeva.Designer.cs">
-      <DependentUpon>Pregled zahtjeva.cs</DependentUpon>
+    <Compile Include="frmPregledZahtjeva.Designer.cs">
+      <DependentUpon>frmPregledZahtjeva.cs</DependentUpon>
     </Compile>
     <Compile Include="pregledi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -221,14 +209,8 @@
     <EmbeddedResource Include="Glavni izbornik.resx">
       <DependentUpon>Glavni izbornik.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PredajaZahtjeva.resx">
-      <DependentUpon>PredajaZahtjeva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pregled zahtjeva liječnik.resx">
-      <DependentUpon>Pregled zahtjeva liječnik.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pregled zahtjeva.resx">
-      <DependentUpon>Pregled zahtjeva.cs</DependentUpon>
+    <EmbeddedResource Include="frmPregledZahtjeva.resx">
+      <DependentUpon>frmPregledZahtjeva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prijava.resx">
       <DependentUpon>Prijava.cs</DependentUpon>

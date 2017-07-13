@@ -45,6 +45,7 @@
             this.btnPregled.TabIndex = 0;
             this.btnPregled.Text = "Pregled zahtjeva za ispričnicom";
             this.btnPregled.UseVisualStyleBackColor = true;
+            this.btnPregled.Click += new System.EventHandler(this.btnPregled_Click);
             // 
             // btnUpis
             // 
