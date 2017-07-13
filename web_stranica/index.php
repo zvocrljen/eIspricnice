@@ -32,14 +32,20 @@ if (isset($_POST["submit"])) {
     if (empty($greska)) {
         $veza = new Baza();
         $veza->spojiDB();
-        $sql = "select BrojZdravstveneIskaznice, lozinka, ImePrezime FROM pacijenti";
+        $sql = "select BrojZdravstveneIskaznice, lozinka, ImePrezime, Zaposlenici_idZaposlenici FROM pacijenti";
         $rs = $veza->selectDB($sql);
 		$hash = hash('sha256', $_POST["lozinka"]);
-		echo $hash;
-        while (list($broj, $lozinka, $ime) = $rs->fetch_array()) {
+		
+        while (list($broj, $lozinka, $ime, $doktor) = $rs->fetch_array()) {
             foreach ($_POST as $key => $value) {
 				
                 if($_POST["korime"] == $broj && $hash == $lozinka){
+					echo $doktor;
+					if($doktor == NULL){
+						$poruka = "Niste dodjeljeni doktoru te se ne možete prijaviti";
+						echo "<script type='text/javascript'>if(confirm('$poruka')){window.location.href = 'index.php'};</script>";
+					}
+					else{
                     $cookie_name = "korisnik";
                     $cookie_value = $ime;
                     setcookie($cookie_name, $cookie_value, time() + (3600), "/");
@@ -49,6 +55,7 @@ if (isset($_POST["submit"])) {
                     $poruka = "Prijavljeni ste";
                     
                     header('Location: app.php');
+					}
                     
                 }
             }
@@ -74,8 +81,12 @@ if (isset($_POST["submit"])) {
 <div class="main-agileits">
 <!--form-stars-here-->								
 		<div class="form-w3-agile">
+			<div class="submit-w3l">
+				<a class='btn otvori w3_play_icon1'  href='#small-dialog2'>Provjera validnosti</a>
+			</div>
 			<h2>Prijava u rad</h2>
 			<form method="post" name="prijava" action="index.php">
+				
 				<div class="form-sub-w3">
 					<input type="text" id="korime" name="korime"  placeholder="Korisničko ime " required="" />
 				<div class="icon-w3">
@@ -94,6 +105,7 @@ if (isset($_POST["submit"])) {
 					<input type="submit" name="submit" value="Prijava">
 				</div>
 			</form>
+			
 		</div>
 <!--//form-ends-here-->
 </div>
@@ -101,46 +113,40 @@ if (isset($_POST["submit"])) {
 					<div class="contact-form1">
 										<div class="contact-w3-agileits">
 										<h3>Registracija</h3>
-											<form method="post" name="registracija" action="registracija.php>
+											<form method="post" name="registracija" action="registracija.php">
 												<div class="form-sub-w3ls">
-													<input placeholder="Ime" type="text" required="">
-													<div class="icon-agile">
+													<input id="ime_prez" name="ime_prez" placeholder="Ime i prezime" type="text" required="">
+													<div class="icon-w3">
+														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+													</div>
+												</div>
+												<div class="form-sub-w3ls">
+													<input id="oib" name="oib" placeholder="OIB" type="text" required="">
+													<div class="icon-w3">
 														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 													</div>
 												</div>
 												<div class="form-sub-w3">
-													<input placeholder="Prezime" type="text" required="">
-													<div class="icon-agile">
-														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-													</div>
-												</div>
-												<div class="form-sub-w3">
-													<input placeholder="OIB" type="text" required="">
-													<div class="icon-agile">
-														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-													</div>
-												</div>
-												<div class="form-sub-w3">
-													<input placeholder="Korisničko ime"  type="text" required="">
-													<div class="icon-agile">
+													<input id="polica" name="polica" placeholder="BrojPoliceOsiguranja"  type="text" required="">
+													<div class="icon-w3">
 														<i class="fa fa-user" aria-hidden="true"></i>
 													</div>
 												</div>
 												<div class="form-sub-w3ls">
-													<input placeholder="Email" class="mail" type="email" required="">
-													<div class="icon-agile">
+													<input id="korime" name="korime" placeholder="Broj Zdravstvene Iskaznice / Korisničko ime" type="text" required="">
+													<div class="icon-w3">
 														<i class="fa fa-envelope-o" aria-hidden="true"></i>
 													</div>
 												</div>
 												<div class="form-sub-w3ls">
-													<input placeholder="Lozinka"  type="password" required="">
-													<div class="icon-agile">
+													<input  id="pass" name="pass"placeholder="Lozinka"  type="password" required="">
+													<div class="icon-w3">
 														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 													</div>
 												</div>
 												<div class="form-sub-w3ls">
-													<input placeholder="Potvrda lozinke"  type="password" required="">
-													<div class="icon-agile">
+													<input id="potvrda" name="potvrda" placeholder="Potvrda lozinke"  type="password" required="">
+													<div class="icon-w3">
 														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 													</div>
 												</div>
@@ -153,6 +159,28 @@ if (isset($_POST["submit"])) {
 										</form>
 					</div>	
 				</div>
+				
+<div id="small-dialog2" class="mfp-hide">
+					<div class="contact-form1">
+										<div class="contact-w3-agileits">
+										<h3>Provjera validnosti ispričnice</h3>
+											<form method="post" name="validacija" action="validacija.php">
+												<div class="form-sub-w3ls">
+													<input id="uuid" name="uuid" placeholder="UUID" type="text" required="">
+													<div class="icon-agile">
+														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+													</div>
+												</div>
+												
+										<div class="submit">
+											<input type="submit" name="submit"  value="Provjera">
+										</div>
+										</form>
+										</div>	
+					</div>
+</div>
+				
+
 <!-- copyright -->
 	<div class="copyright w3-agile">
 		<p> © 2017 eIspričnice | Design by <a href="http://facebook.com/greyfox1995" target="_blank">GreyfoX</a></p>
