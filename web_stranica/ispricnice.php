@@ -28,17 +28,19 @@ if(isset($_POST["submit"])) {
 		
 		$id_zahtjev= $_POST["ispricnica"];
 		
-		$upit = "SELECT zahtjevi.Datum_od, zahtjevi.Datum_do FROM zahtjevi WHERE zahtjevi.idZahtjevi = '$id_zahtjev'";
+		$upit = "SELECT zahtjevi.Datum_od, zahtjevi.Datum_do, (select ispričnice.idIspričnica from ispričnice where Zahtjevi_idZahtjevi='$id_zahtjev') from zahtjevi WHERE zahtjevi.idZahtjevi = '$id_zahtjev'";
+		
 		$rs = $veza->selectDB($upit);
-		$od; $do;
-		while (list($datum_od, $datum_do) = $rs->fetch_array()) {
+		$od; $do; $ispri;
+		while (list($datum_od, $datum_do, $ispricnica) = $rs->fetch_array()) {
 			$od = $datum_od;
 			$do = $datum_do;
+			$ispri = $ispricnica;
 		}
 		
 		$mpdf = new mPDF();
 		$mpdf->WriteHTML('<h1 align="center">Ispričnica</h1><br><br');
-		$mpdf->WriteHTML("<p>$korisnik je izostao/la zbog BOLESTI te tbog toga nije mogao/la polaziti nastavu od $od do $do");
+		$mpdf->WriteHTML("<p>$korisnik je izostao/la zbog BOLESTI te tbog toga nije mogao/la polaziti nastavu od $od do $do <br><br> Serijski broj ispričnice: $ispri");
 		$mpdf->Output($_COOKIE["korisnik"], 'I');
 
 		
@@ -79,8 +81,8 @@ if(isset($_POST["submit"])) {
 					$id = $idpacijenta;
 				}
 				
-				$upit = "SELECT ispričnica.Zahtjevi_idZahtjevi, zahtjevi.Opis, zahtjevi.Datum_od, zahtjevi.Datum_do FROM zahtjevi INNER JOIN pacijenti ON zahtjevi.Pacijenti_idPacijenti = pacijenti.idPacijenti " 
-				."INNER JOIN ispričnica ON ispričnica.Zahtjevi_idZahtjevi = zahtjevi.idZahtjevi Where zahtjevi.Pacijenti_idPacijenti = '$id'";
+				$upit = "SELECT ispričnice.Zahtjevi_idZahtjevi, zahtjevi.Opis, zahtjevi.Datum_od, zahtjevi.Datum_do FROM zahtjevi INNER JOIN pacijenti ON zahtjevi.Pacijenti_idPacijenti = pacijenti.idPacijenti " 
+				."INNER JOIN ispričnice ON ispričnice.Zahtjevi_idZahtjevi = zahtjevi.idZahtjevi Where zahtjevi.Pacijenti_idPacijenti = '$id'";
 				$rezultat = $veza->selectDB($upit);
 				
 				echo '<form method="post" name="ispricnica" action="ispricnice.php">';
@@ -92,9 +94,33 @@ if(isset($_POST["submit"])) {
 				}
 				
 				echo "<div class='submit-w3l'><input type='submit' name='submit' value='Ispis'></div></form>";
+				$veza->zatvoriDB();
 			}
 			?>
-
+			<br>
+			<h2>Zakazani pregledi kod doktora</h2>
+			<?php
+			if(isset($_SESSION["korisnik"])){
+				$veza = new Baza ();
+				$veza->spojiDB();
+				$korisnik = $_COOKIE['korisnik'];
+				$id;
+				$sql = "SELECT idpacijenti from pacijenti WHERE ImePrezime = '$korisnik';";
+				$rs = $veza->selectDB($sql);
+		
+				while (list($idpacijenta) = $rs->fetch_array()) {
+					$id = $idpacijenta;
+				}
+				
+				$pregled = "SELECT Datum_pregleda from pregledi WHERE Pacijenti_idPacijenti = $id;";
+				$rezultat = $veza->selectDB($pregled);
+				while (list($datum_pregleda) = $rezultat->fetch_array()) {
+					echo "<label>Datum pregleda: $datum_pregleda </label><br>";
+				
+				}
+				$veza->zatvoriDB();
+			}
+			?>
 		</div>
 	</div>
 <!--//form-ends-here-->

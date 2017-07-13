@@ -53,8 +53,7 @@ namespace eIspričnica
         }
 
         private void adminButton_Click(object sender, EventArgs e)
-<<<<<<< Updated upstream
-=======
+
         {
             frmAdministracija admin = new frmAdministracija(session);
             admin.ShowDialog();
@@ -66,15 +65,12 @@ namespace eIspričnica
         }
 
         private void btnPregled_Click(object sender, EventArgs e)
->>>>>>> Stashed changes
+
         {
             frmPregledZahtjeva zahtjev = new frmPregledZahtjeva(session);
             zahtjev.ShowDialog();
         }
 
-        private void odjavaButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }
