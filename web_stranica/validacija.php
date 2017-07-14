@@ -19,13 +19,14 @@
 			$ime = $imeprez;
 			$datum = $datum_odobrenja;
 		}
-		
-		
-		
 		$veza->zatvoriDB();
 		
-
-		$poruka = "Ispričnica je pronađena! Podaci:\\n $ime \\n $datum";
+		if($ime=="" && $datum==""){
+			$poruka="Serijski broj nije pronađen! Ispričnica nije valjana!";
+		}
+		else {
+			$poruka = "Ispričnica je pronađena! Podaci:\\n $ime \\n $datum";
+		}
         echo "<script type='text/javascript'>if(confirm('$poruka')){window.location.href = 'index.php'};</script>";
 	}
 ?>
